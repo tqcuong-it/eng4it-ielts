@@ -590,15 +590,15 @@ a { color: var(--primary); text-decoration: none; }
 }
 .exercise-row:hover { background: rgba(0,0,0,0.03); }
 [data-theme="dark"] .exercise-row:hover { background: rgba(255,255,255,0.05); }
-.exercise-row.done { opacity: 0.5; }
+.exercise-row.done { opacity: 1; }
 .ex-status-icon { font-size: 13px; flex-shrink: 0; width: 18px; text-align: center; color: var(--text-secondary); }
 .exercise-row.done .ex-status-icon { color: var(--success); }
 .ex-name { flex: 1; font-size: 13.5px; font-weight: 500; }
 .ex-tag { display: none; }
 .ex-arrow { color: var(--text-secondary); font-size: 14px; font-weight: 300; opacity: 0.4; }
 .exercise-divider { height: 1px; background: var(--border); margin: 4px 10px; opacity: 0.5; }
-.exercise-row.optional { opacity: 0.6; }
-.exercise-row.optional.done { opacity: 0.45; }
+.exercise-row.optional { opacity: 1; }
+.exercise-row.optional.done { opacity: 1; }
 
 .locked-msg {
   text-align: center;
