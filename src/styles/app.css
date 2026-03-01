@@ -609,4 +609,182 @@ a { color: var(--primary); text-decoration: none; }
   border-radius: 8px;
 }
 
+/* === IELTS Progress Card (Dashboard) === */
+.ielts-progress-card {
+  display: block;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.12s;
+}
+.ielts-progress-card:hover { transform: translateY(-1px); }
+.ielts-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.ielts-progress-left { display: flex; flex-direction: column; gap: 2px; }
+.ielts-target { font-size: 15px; font-weight: 600; }
+.ielts-phase { font-size: 12px; color: var(--text-secondary); }
+.ielts-progress-right { text-align: right; }
+.ielts-pct { font-size: 22px; font-weight: 700; color: var(--primary); display: block; }
+.ielts-days { font-size: 11px; color: var(--text-secondary); }
+.ielts-progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.ielts-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 3px;
+  transition: width 0.5s;
+  min-width: 2px;
+}
+.ielts-progress-hint {
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* === Roadmap Page === */
+.roadmap-page { max-width: 640px; margin: 0 auto; padding: 16px; }
+.roadmap-overview {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.roadmap-target { margin-bottom: 16px; }
+.target-score {
+  display: block;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.target-label { font-size: 13px; color: var(--text-secondary); }
+.roadmap-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+.roadmap-stat { display: flex; flex-direction: column; }
+.stat-val { font-size: 20px; font-weight: 700; }
+.stat-desc { font-size: 11px; color: var(--text-secondary); }
+.roadmap-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: visible;
+  position: relative;
+}
+.roadmap-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 4px;
+  transition: width 0.5s;
+}
+.roadmap-bar-markers {
+  position: relative;
+  height: 20px;
+  margin-top: 4px;
+}
+.roadmap-bar-markers span {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+/* Phase Cards */
+.roadmap-phases { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.phase-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  border-left: 4px solid var(--border);
+}
+.phase-card.current { border-left-color: var(--primary); }
+.phase-card.past { border-left-color: var(--success); }
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.phase-icon { font-size: 20px; }
+.phase-title-block { flex: 1; }
+.phase-title-block h3 { font-size: 15px; font-weight: 600; margin: 0; }
+.phase-months { font-size: 11px; color: var(--text-secondary); }
+.phase-pct { font-size: 16px; font-weight: 700; color: var(--primary); }
+.phase-progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.phase-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+}
+.phase-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.phase-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+.phase-skills li {
+  font-size: 13px;
+  padding: 3px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+.skill-check { flex-shrink: 0; font-size: 12px; width: 16px; }
+.phase-milestone {
+  font-size: 12px;
+  padding: 6px 10px;
+  background: var(--bg);
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+/* Roadmap Info */
+.roadmap-info {
+  text-align: center;
+  padding: 16px;
+}
+.roadmap-info p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.roadmap-blog-link {
+  font-size: 13px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 8px;
+}
+
 
