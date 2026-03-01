@@ -600,6 +600,19 @@ a { color: var(--primary); text-decoration: none; }
 .exercise-row.optional { opacity: 1; }
 .exercise-row.optional.done { opacity: 1; }
 
+/* Collapsed completed day */
+.lesson-card.collapsed { cursor: pointer; }
+.lesson-card.collapsed .lesson-top { margin-bottom: 0; }
+.toggle-arrow {
+  font-size: 18px;
+  color: var(--text-secondary);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.toggle-arrow.open { transform: rotate(90deg); }
+.lesson-card.collapsed .exercise-list { margin-top: 8px; }
+
 .locked-msg {
   text-align: center;
   color: var(--text-secondary);

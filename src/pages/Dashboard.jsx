@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 import { Link } from 'react-router-dom'
@@ -10,11 +11,16 @@ export default function Dashboard() {
   const { lessonProgress, isLessonUnlocked, getExerciseStatus, isDayCompleted, getStats, getDueWords } = useProgress()
   const stats = getStats()
   const dueWords = getDueWords()
-  // Calculate completed weeks from actual progress
   const week1Done = week1.days.every(day => isDayCompleted(day.id))
   const completedWeeks = week1Done ? 1 : 0
   const overallProgress = getProgressFromWeeks(completedWeeks)
   const currentPhase = getPhaseFromWeeks(completedWeeks)
+
+  // Track which completed days are expanded
+  const [expandedDays, setExpandedDays] = useState({})
+  const toggleDay = (dayId) => {
+    setExpandedDays(prev => ({ ...prev, [dayId]: !prev[dayId] }))
+  }
 
   return (
     <div className="dashboard">
@@ -84,25 +90,70 @@ export default function Dashboard() {
             const completed = isDayCompleted(day.id)
             const exStatus = getExerciseStatus(day.id)
             const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
+            const isExpanded = expandedDays[day.id] || false
 
-            return (
-              <div key={day.id} className={`lesson-card ${!unlocked ? 'locked' : ''} ${completed ? 'passed' : ''}`}>
-                <div className="lesson-top">
-                  <div className="lesson-status">
-                    {completed ? '✅' : unlocked ? '🔓' : '🔒'}
+            // Completed days: collapsed by default
+            if (completed) {
+              return (
+                <div key={day.id} className="lesson-card passed collapsed" onClick={() => toggleDay(day.id)}>
+                  <div className="lesson-top">
+                    <div className="lesson-status">✅</div>
+                    <div className="lesson-info">
+                      <h3>{day.title}</h3>
+                      <p>Hoàn thành · {requiredPassed}/3 bắt buộc</p>
+                    </div>
+                    <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
                   </div>
-                  <div className="lesson-info">
-                    <h3>{day.title}</h3>
-                    <p>{day.vocabulary.length} từ vựng · Bắt buộc: {requiredPassed}/3</p>
-                    {day.blogUrl && (
-                      <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
-                        📖 Xem giáo án trên blog
-                      </a>
-                    )}
-                  </div>
+                  {isExpanded && (
+                    <div className="exercise-list">
+                      <Link to={`/learn/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
+                        <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
+                        <span className="ex-name">📚 Từ vựng</span>
+                        <span className="ex-arrow">›</span>
+                      </Link>
+                      <Link to={`/grammar/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
+                        <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
+                        <span className="ex-name">📝 Ngữ pháp</span>
+                        <span className="ex-arrow">›</span>
+                      </Link>
+                      <div className="exercise-divider"></div>
+                      <Link to={`/reading/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
+                        <span className="ex-status-icon">✅</span>
+                        <span className="ex-name">📖 Đọc hiểu</span>
+                        <span className="ex-arrow">›</span>
+                      </Link>
+                      <Link to={`/listening/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
+                        <span className="ex-status-icon">✅</span>
+                        <span className="ex-name">🎧 Nghe</span>
+                        <span className="ex-arrow">›</span>
+                      </Link>
+                      <Link to={`/quiz/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
+                        <span className="ex-status-icon">✅</span>
+                        <span className="ex-name">🧪 Kiểm tra</span>
+                        <span className="ex-arrow">›</span>
+                      </Link>
+                    </div>
+                  )}
                 </div>
+              )
+            }
 
-                {unlocked && (
+            // Unlocked (current day): expanded
+            if (unlocked) {
+              return (
+                <div key={day.id} className="lesson-card">
+                  <div className="lesson-top">
+                    <div className="lesson-status">🔓</div>
+                    <div className="lesson-info">
+                      <h3>{day.title}</h3>
+                      <p>{day.vocabulary.length} từ vựng · Bắt buộc: {requiredPassed}/3</p>
+                      {day.blogUrl && (
+                        <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
+                          📖 Xem giáo án trên blog
+                        </a>
+                      )}
+                    </div>
+                  </div>
                   <div className="exercise-list">
                     <Link to={`/learn/${day.id}`} className={`exercise-row optional ${exStatus.vocab ? 'done' : ''}`}>
                       <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
@@ -131,13 +182,20 @@ export default function Dashboard() {
                       <span className="ex-arrow">›</span>
                     </Link>
                   </div>
-                )}
+                </div>
+              )
+            }
 
-                {!unlocked && (
-                  <div className="locked-msg">
-                    🔒 Pass 3 bài bắt buộc (Đọc, Nghe, Kiểm tra) của ngày trước để mở khóa
+            // Locked
+            return (
+              <div key={day.id} className="lesson-card locked">
+                <div className="lesson-top">
+                  <div className="lesson-status">🔒</div>
+                  <div className="lesson-info">
+                    <h3>{day.title}</h3>
+                    <p>Pass 3 bài bắt buộc của ngày trước để mở khóa</p>
                   </div>
-                )}
+                </div>
               </div>
             )
           })}
