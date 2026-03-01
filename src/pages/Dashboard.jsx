@@ -258,7 +258,7 @@ export default function Dashboard() {
                       {weekAppData && completedDaysCount > 0 && !weekCompleted && (
                         <span className="week-day-count">{completedDaysCount}/7</span>
                       )}
-                      {weekAppData ? '📱 App' : '📖 Blog'}
+                      {weekInfo.title.split(':')[0]}
                       {weekUnlocked && <span className={`toggle-arrow ${isOpen ? 'open' : ''}`}>›</span>}
                     </span>
                   </div>
