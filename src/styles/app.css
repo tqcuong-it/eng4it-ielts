@@ -860,11 +860,52 @@ a { color: var(--primary); text-decoration: none; }
 .week-header:active { background: rgba(0,0,0,0.03); }
 [data-theme="dark"] .week-header:active { background: rgba(255,255,255,0.05); }
 
+.week-status-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+
 .week-title {
   font-size: 15px;
   font-weight: 600;
   color: var(--content);
   flex: 1;
+}
+
+/* Week locked state */
+.week-card.week-locked {
+  opacity: 0.55;
+}
+.week-card.week-locked .week-header {
+  cursor: default;
+}
+.week-card.week-locked .week-title {
+  color: var(--secondary);
+}
+
+/* Week completed state */
+.week-card.week-completed {
+  border-color: #2ecc71;
+}
+.week-card.week-completed .week-title {
+  color: var(--secondary);
+}
+
+/* Week unlocked (current) */
+.week-card.week-unlocked {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.week-day-count {
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
 }
 
 .week-meta {

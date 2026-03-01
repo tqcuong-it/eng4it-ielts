@@ -232,19 +232,33 @@ export default function Dashboard() {
               const weekAppData = getWeekData(weekInfo.id)
               const isOpen = expandedWeeks[weekInfo.id] || false
               const days = weekAppData ? weekAppData.days : weekInfo.days
+              const weekUnlocked = isWeekUnlocked(weekInfo.id)
+              const weekCompleted = weekAppData 
+                ? weekAppData.days.every(d => isDayCompleted(`${weekInfo.id}-${d.id}`))
+                : false
+              // Count completed days in this week
+              const completedDaysCount = weekAppData
+                ? weekAppData.days.filter(d => isDayCompleted(`${weekInfo.id}-${d.id}`)).length
+                : 0
+              const weekIcon = weekCompleted ? '✅' : weekUnlocked ? '🔓' : '🔒'
+              const weekStatusClass = weekCompleted ? 'week-completed' : weekUnlocked ? 'week-unlocked' : 'week-locked'
 
               return (
-                <div key={weekInfo.id} className={`week-card ${weekInfo.milestone ? 'milestone' : ''}`}>
-                  <div className="week-header" onClick={() => toggleWeek(weekInfo.id)}>
+                <div key={weekInfo.id} className={`week-card ${weekInfo.milestone ? 'milestone' : ''} ${weekStatusClass}`}>
+                  <div className="week-header" onClick={() => weekUnlocked && toggleWeek(weekInfo.id)}>
+                    <span className="week-status-icon">{weekIcon}</span>
                     <span className="week-title">
                       {weekInfo.milestone ? '🏆 ' : ''}{weekInfo.title}
                     </span>
                     <span className="week-meta">
+                      {weekAppData && completedDaysCount > 0 && !weekCompleted && (
+                        <span className="week-day-count">{completedDaysCount}/7</span>
+                      )}
                       {weekAppData ? '📱 App' : '📖 Blog'}
-                      <span className={`toggle-arrow ${isOpen ? 'open' : ''}`}>›</span>
+                      {weekUnlocked && <span className={`toggle-arrow ${isOpen ? 'open' : ''}`}>›</span>}
                     </span>
                   </div>
-                  {isOpen && (
+                  {isOpen && weekUnlocked && (
                     <div className="week-days">
                       {weekAppData
                         ? weekAppData.days.map((day, idx) => renderInteractiveDay(day, idx, weekInfo.id))
