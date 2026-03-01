@@ -10,5 +10,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Auto-reload on deploy: if JS chunk 404s, reload to get fresh index.html
+      window.addEventListener('error', function(e) {
+        if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+          if (!sessionStorage.getItem('reload_attempted')) {
+            sessionStorage.setItem('reload_attempted', '1');
+            window.location.reload();
+          }
+        }
+      }, true);
+      // Clear reload flag on successful load
+      window.addEventListener('load', function() {
+        sessionStorage.removeItem('reload_attempted');
+      });
+    </script>
   </body>
 </html>
