@@ -59,7 +59,7 @@ export default function Dashboard() {
             const unlocked = isLessonUnlocked(index)
             const completed = isDayCompleted(day.id)
             const exStatus = getExerciseStatus(day.id)
-            const passedCount = Object.values(exStatus).filter(Boolean).length
+            const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
 
             return (
               <div key={day.id} className={`lesson-card ${!unlocked ? 'locked' : ''} ${completed ? 'passed' : ''}`}>
@@ -69,7 +69,7 @@ export default function Dashboard() {
                   </div>
                   <div className="lesson-info">
                     <h3>{day.title}</h3>
-                    <p>{day.vocabulary.length} từ vựng · Hoàn thành {passedCount}/5</p>
+                    <p>{day.vocabulary.length} từ vựng · Bắt buộc: {requiredPassed}/3</p>
                     {day.blogUrl && (
                       <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
                         📖 Xem giáo án trên blog
@@ -79,38 +79,44 @@ export default function Dashboard() {
                 </div>
 
                 {unlocked && (
-                  <div className="exercise-grid">
-                    <Link to={`/learn/${day.id}`} className={`exercise-btn ${exStatus.vocab ? 'done' : ''}`}>
-                      <span className="ex-icon">📚</span>
-                      <span className="ex-label">Từ vựng</span>
-                      <span className="ex-status">{exStatus.vocab ? '✅' : '○'}</span>
-                    </Link>
-                    <Link to={`/grammar/${day.id}`} className={`exercise-btn ${exStatus.grammar ? 'done' : ''}`}>
-                      <span className="ex-icon">📝</span>
-                      <span className="ex-label">Ngữ pháp</span>
-                      <span className="ex-status">{exStatus.grammar ? '✅' : '○'}</span>
-                    </Link>
-                    <Link to={`/reading/${day.id}`} className={`exercise-btn ${exStatus.reading ? 'done' : ''}`}>
-                      <span className="ex-icon">📖</span>
-                      <span className="ex-label">Đọc hiểu</span>
-                      <span className="ex-status">{exStatus.reading ? '✅' : '○'}</span>
-                    </Link>
-                    <Link to={`/listening/${day.id}`} className={`exercise-btn ${exStatus.listening ? 'done' : ''}`}>
-                      <span className="ex-icon">🎧</span>
-                      <span className="ex-label">Nghe</span>
-                      <span className="ex-status">{exStatus.listening ? '✅' : '○'}</span>
-                    </Link>
-                    <Link to={`/quiz/${day.id}`} className={`exercise-btn ${exStatus.quiz ? 'done' : ''}`}>
-                      <span className="ex-icon">🧪</span>
-                      <span className="ex-label">Kiểm tra</span>
-                      <span className="ex-status">{exStatus.quiz ? '✅' : '○'}</span>
-                    </Link>
+                  <div className="exercise-section">
+                    <div className="exercise-label">Tự chọn</div>
+                    <div className="exercise-grid optional">
+                      <Link to={`/learn/${day.id}`} className={`exercise-btn optional ${exStatus.vocab ? 'done' : ''}`}>
+                        <span className="ex-icon">📚</span>
+                        <span className="ex-label">Từ vựng</span>
+                        <span className="ex-status">{exStatus.vocab ? '✅' : '○'}</span>
+                      </Link>
+                      <Link to={`/grammar/${day.id}`} className={`exercise-btn optional ${exStatus.grammar ? 'done' : ''}`}>
+                        <span className="ex-icon">📝</span>
+                        <span className="ex-label">Ngữ pháp</span>
+                        <span className="ex-status">{exStatus.grammar ? '✅' : '○'}</span>
+                      </Link>
+                    </div>
+                    <div className="exercise-label required-label">Bắt buộc ⭐</div>
+                    <div className="exercise-grid required">
+                      <Link to={`/reading/${day.id}`} className={`exercise-btn ${exStatus.reading ? 'done' : ''}`}>
+                        <span className="ex-icon">📖</span>
+                        <span className="ex-label">Đọc hiểu</span>
+                        <span className="ex-status">{exStatus.reading ? '✅' : '○'}</span>
+                      </Link>
+                      <Link to={`/listening/${day.id}`} className={`exercise-btn ${exStatus.listening ? 'done' : ''}`}>
+                        <span className="ex-icon">🎧</span>
+                        <span className="ex-label">Nghe</span>
+                        <span className="ex-status">{exStatus.listening ? '✅' : '○'}</span>
+                      </Link>
+                      <Link to={`/quiz/${day.id}`} className={`exercise-btn ${exStatus.quiz ? 'done' : ''}`}>
+                        <span className="ex-icon">🧪</span>
+                        <span className="ex-label">Kiểm tra</span>
+                        <span className="ex-status">{exStatus.quiz ? '✅' : '○'}</span>
+                      </Link>
+                    </div>
                   </div>
                 )}
 
                 {!unlocked && (
                   <div className="locked-msg">
-                    🔒 Pass hết 5 bài của ngày trước để mở khóa
+                    🔒 Pass 3 bài bắt buộc (Đọc, Nghe, Kiểm tra) của ngày trước để mở khóa
                   </div>
                 )}
               </div>

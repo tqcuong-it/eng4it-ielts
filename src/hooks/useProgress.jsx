@@ -3,8 +3,8 @@ import { supabase } from '../lib/supabase.jsx'
 import { useAuth } from './useAuth.jsx'
 import { sm2, getWordStatus } from '../lib/srs.jsx'
 
-// All exercise types that must be passed to unlock next day
-const EXERCISE_TYPES = ['vocab', 'grammar', 'reading', 'listening', 'quiz']
+// Required exercises to unlock next day (vocab & grammar are optional)
+const REQUIRED_TYPES = ['reading', 'listening', 'quiz']
 
 export function useProgress() {
   const { user } = useAuth()
@@ -144,10 +144,10 @@ export function useProgress() {
     }
   }
 
-  // Check if ALL exercises of a day are passed
+  // Check if REQUIRED exercises (reading, listening, quiz) are passed
   const isDayCompleted = (dayId) => {
     const status = getExerciseStatus(dayId)
-    return Object.values(status).every(v => v === true)
+    return REQUIRED_TYPES.every(type => status[type] === true)
   }
 
   // Unlock: day 1 always open; next day requires ALL exercises of previous day passed

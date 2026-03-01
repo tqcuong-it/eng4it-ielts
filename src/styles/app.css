@@ -603,6 +603,21 @@ a { color: var(--primary); text-decoration: none; }
 .ex-status { font-size: 12px; color: var(--text-secondary); }
 .exercise-btn.done .ex-status { color: var(--success); }
 
+/* Exercise sections */
+.exercise-section { margin-top: 6px; }
+.exercise-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.exercise-label.required-label { color: var(--primary); margin-top: 8px; }
+.exercise-grid.optional { margin-bottom: 4px; }
+.exercise-btn.optional { opacity: 0.8; border-style: dashed; }
+.exercise-btn.optional.done { opacity: 1; border-style: solid; }
+
 .locked-msg {
   text-align: center;
   color: var(--text-secondary);
