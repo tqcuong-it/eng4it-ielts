@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 import { Link } from 'react-router-dom'
-import { week1 } from '../data/week1.jsx'
 import { weeksIndex, PHASE_NAMES } from '../data/weeks-index.jsx'
+import { getWeekData, hasWeekData } from '../data/loader.jsx'
 import { getProgressFromWeeks, getPhaseFromWeeks } from '../data/roadmap.jsx'
 import ThemeToggle from '../components/ThemeToggle.jsx'
 
@@ -12,8 +12,13 @@ export default function Dashboard() {
   const { lessonProgress, isLessonUnlocked, getExerciseStatus, isDayCompleted, getStats, getDueWords } = useProgress()
   const stats = getStats()
   const dueWords = getDueWords()
-  const week1Done = week1.days.every(day => isDayCompleted(day.id))
-  const completedWeeks = week1Done ? 1 : 0
+  
+  // Count completed weeks dynamically
+  const completedWeeks = weeksIndex.filter(w => {
+    const data = getWeekData(w.id)
+    if (!data) return false
+    return data.days.every(day => isDayCompleted(day.id))
+  }).length
   const overallProgress = getProgressFromWeeks(completedWeeks)
   const currentPhase = getPhaseFromWeeks(completedWeeks)
 
@@ -30,11 +35,13 @@ export default function Dashboard() {
   // Group weeks by phase
   const phases = [1, 2, 3, 4]
 
-  // Render exercise list for Week 1 days (has app data)
-  const renderWeek1Day = (day, index) => {
-    const unlocked = isLessonUnlocked(index)
-    const completed = isDayCompleted(day.id)
-    const exStatus = getExerciseStatus(day.id)
+
+  // Render interactive day (any week with app data)
+  const renderInteractiveDay = (day, index, weekId) => {
+    const globalDayId = `${weekId}-${day.id}`
+    const unlocked = index === 0 || isDayCompleted(`${weekId}-day-${index}`)
+    const completed = isDayCompleted(globalDayId)
+    const exStatus = getExerciseStatus(globalDayId)
     const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
     let dayProgress = 0
     if (exStatus.vocab) dayProgress += 10
@@ -42,11 +49,11 @@ export default function Dashboard() {
     if (exStatus.reading) dayProgress += 27
     if (exStatus.listening) dayProgress += 27
     if (exStatus.quiz) dayProgress += 26
-    const isExpanded = expandedDays[day.id] || false
+    const isExpanded = expandedDays[globalDayId] || false
 
     if (completed) {
       return (
-        <div key={day.id} className="lesson-card passed collapsed" onClick={() => toggleDay(day.id)}>
+        <div key={globalDayId} className="lesson-card passed collapsed" onClick={() => toggleDay(globalDayId)}>
           <div className="lesson-top">
             <div className="lesson-status">✅</div>
             <div className="lesson-info">
@@ -55,43 +62,14 @@ export default function Dashboard() {
             </div>
             <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
           </div>
-          {isExpanded && (
-            <div className="exercise-list">
-              <Link to={`/learn/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
-                <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
-                <span className="ex-name">📚 Từ vựng</span>
-                <span className="ex-arrow">›</span>
-              </Link>
-              <Link to={`/grammar/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
-                <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
-                <span className="ex-name">📝 Ngữ pháp</span>
-                <span className="ex-arrow">›</span>
-              </Link>
-              <div className="exercise-divider"></div>
-              <Link to={`/reading/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
-                <span className="ex-status-icon">✅</span>
-                <span className="ex-name">📖 Đọc hiểu</span>
-                <span className="ex-arrow">›</span>
-              </Link>
-              <Link to={`/listening/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
-                <span className="ex-status-icon">✅</span>
-                <span className="ex-name">🎧 Nghe</span>
-                <span className="ex-arrow">›</span>
-              </Link>
-              <Link to={`/quiz/${day.id}`} className="exercise-row" onClick={e => e.stopPropagation()}>
-                <span className="ex-status-icon">✅</span>
-                <span className="ex-name">🧪 Kiểm tra</span>
-                <span className="ex-arrow">›</span>
-              </Link>
-            </div>
-          )}
+          {isExpanded && renderExerciseLinks(day, globalDayId, exStatus)}
         </div>
       )
     }
 
     if (unlocked) {
       return (
-        <div key={day.id} className="lesson-card">
+        <div key={globalDayId} className="lesson-card">
           <div className="lesson-top">
             <div className="lesson-status">🔓</div>
             <div className="lesson-info">
@@ -104,46 +82,17 @@ export default function Dashboard() {
                 <span>{requiredPassed}/3</span>
               </div>
               {day.blogUrl && (
-                <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
-                  📖 Xem giáo án trên blog
-                </a>
+                <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">📖 Xem giáo án trên blog</a>
               )}
             </div>
           </div>
-          <div className="exercise-list">
-            <Link to={`/learn/${day.id}`} className={`exercise-row optional ${exStatus.vocab ? 'done' : ''}`}>
-              <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
-              <span className="ex-name">📚 Từ vựng</span>
-              <span className="ex-arrow">›</span>
-            </Link>
-            <Link to={`/grammar/${day.id}`} className={`exercise-row optional ${exStatus.grammar ? 'done' : ''}`}>
-              <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
-              <span className="ex-name">📝 Ngữ pháp</span>
-              <span className="ex-arrow">›</span>
-            </Link>
-            <div className="exercise-divider"></div>
-            <Link to={`/reading/${day.id}`} className={`exercise-row ${exStatus.reading ? 'done' : ''}`}>
-              <span className="ex-status-icon">{exStatus.reading ? '✅' : '○'}</span>
-              <span className="ex-name">📖 Đọc hiểu</span>
-              <span className="ex-arrow">›</span>
-            </Link>
-            <Link to={`/listening/${day.id}`} className={`exercise-row ${exStatus.listening ? 'done' : ''}`}>
-              <span className="ex-status-icon">{exStatus.listening ? '✅' : '○'}</span>
-              <span className="ex-name">🎧 Nghe</span>
-              <span className="ex-arrow">›</span>
-            </Link>
-            <Link to={`/quiz/${day.id}`} className={`exercise-row ${exStatus.quiz ? 'done' : ''}`}>
-              <span className="ex-status-icon">{exStatus.quiz ? '✅' : '○'}</span>
-              <span className="ex-name">🧪 Kiểm tra</span>
-              <span className="ex-arrow">›</span>
-            </Link>
-          </div>
+          {renderExerciseLinks(day, globalDayId, exStatus)}
         </div>
       )
     }
 
     return (
-      <div key={day.id} className="lesson-card locked">
+      <div key={globalDayId} className="lesson-card locked">
         <div className="lesson-top">
           <div className="lesson-status">🔒</div>
           <div className="lesson-info">
@@ -155,7 +104,38 @@ export default function Dashboard() {
     )
   }
 
-  // Render blog-only day (Week 2+)
+  const renderExerciseLinks = (day, globalDayId, exStatus) => (
+    <div className="exercise-list">
+      <Link to={`/learn/${globalDayId}`} className={`exercise-row optional ${exStatus.vocab ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+        <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
+        <span className="ex-name">📚 Từ vựng</span>
+        <span className="ex-arrow">›</span>
+      </Link>
+      <Link to={`/grammar/${globalDayId}`} className={`exercise-row optional ${exStatus.grammar ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+        <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
+        <span className="ex-name">📝 Ngữ pháp</span>
+        <span className="ex-arrow">›</span>
+      </Link>
+      <div className="exercise-divider"></div>
+      <Link to={`/reading/${globalDayId}`} className={`exercise-row ${exStatus.reading ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+        <span className="ex-status-icon">{exStatus.reading ? '✅' : '○'}</span>
+        <span className="ex-name">📖 Đọc hiểu</span>
+        <span className="ex-arrow">›</span>
+      </Link>
+      <Link to={`/listening/${globalDayId}`} className={`exercise-row ${exStatus.listening ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+        <span className="ex-status-icon">{exStatus.listening ? '✅' : '○'}</span>
+        <span className="ex-name">🎧 Nghe</span>
+        <span className="ex-arrow">›</span>
+      </Link>
+      <Link to={`/quiz/${globalDayId}`} className={`exercise-row ${exStatus.quiz ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+        <span className="ex-status-icon">{exStatus.quiz ? '✅' : '○'}</span>
+        <span className="ex-name">🧪 Kiểm tra</span>
+        <span className="ex-arrow">›</span>
+      </Link>
+    </div>
+  )
+
+  // Render blog-only day (weeks without app data yet)
   const renderBlogDay = (day) => (
     <a key={day.id} href={day.blogUrl} target="_blank" rel="noopener" className="lesson-card blog-day">
       <div className="lesson-top">
@@ -235,10 +215,9 @@ export default function Dashboard() {
           <section key={phase} className="phase-section">
             <h2 className="phase-title">{PHASE_NAMES[phase]}</h2>
             {phaseWeeks.map(weekInfo => {
-              const isWeek1 = weekInfo.id === 'week-1'
+              const weekAppData = getWeekData(weekInfo.id)
               const isOpen = expandedWeeks[weekInfo.id] || false
-              const week1Data = isWeek1 ? week1 : null
-              const days = isWeek1 ? week1.days : weekInfo.days
+              const days = weekAppData ? weekAppData.days : weekInfo.days
 
               return (
                 <div key={weekInfo.id} className={`week-card ${weekInfo.milestone ? 'milestone' : ''}`}>
@@ -247,14 +226,14 @@ export default function Dashboard() {
                       {weekInfo.milestone ? '🏆 ' : ''}{weekInfo.title}
                     </span>
                     <span className="week-meta">
-                      {isWeek1 && weekInfo.hasAppData ? '📱 App' : '📖 Blog'}
+                      {weekAppData ? '📱 App' : '📖 Blog'}
                       <span className={`toggle-arrow ${isOpen ? 'open' : ''}`}>›</span>
                     </span>
                   </div>
                   {isOpen && (
                     <div className="week-days">
-                      {isWeek1 
-                        ? week1.days.map((day, idx) => renderWeek1Day(day, idx))
+                      {weekAppData
+                        ? weekAppData.days.map((day, idx) => renderInteractiveDay(day, idx, weekInfo.id))
                         : days?.map(day => renderBlogDay(day))
                       }
                     </div>
