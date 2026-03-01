@@ -85,7 +85,6 @@ export default function Dashboard() {
       return (
         <div key={globalDayId} className="lesson-card">
           <div className="lesson-top">
-            <div className="lesson-status">🔓</div>
             <div className="lesson-info">
               <h3>{day.title}</h3>
               <div className="day-progress-row">
