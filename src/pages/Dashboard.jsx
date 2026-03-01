@@ -2,7 +2,7 @@ import { useAuth } from '../hooks/useAuth.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 import { Link } from 'react-router-dom'
 import { week1 } from '../data/week1.jsx'
-import { getCurrentWeek, getOverallProgress, getCurrentPhase, getDaysUntilExam } from '../data/roadmap.jsx'
+import { getProgressFromWeeks, getPhaseFromWeeks } from '../data/roadmap.jsx'
 import ThemeToggle from '../components/ThemeToggle.jsx'
 
 export default function Dashboard() {
@@ -10,10 +10,11 @@ export default function Dashboard() {
   const { lessonProgress, isLessonUnlocked, getExerciseStatus, isDayCompleted, getStats, getDueWords } = useProgress()
   const stats = getStats()
   const dueWords = getDueWords()
-  const currentWeek = getCurrentWeek()
-  const overallProgress = getOverallProgress(currentWeek)
-  const currentPhase = getCurrentPhase(currentWeek)
-  const daysLeft = getDaysUntilExam()
+  // Calculate completed weeks from actual progress
+  const week1Done = week1.days.every(day => isDayCompleted(day.id))
+  const completedWeeks = week1Done ? 1 : 0
+  const overallProgress = getProgressFromWeeks(completedWeeks)
+  const currentPhase = getPhaseFromWeeks(completedWeeks)
 
   return (
     <div className="dashboard">
@@ -37,7 +38,7 @@ export default function Dashboard() {
           </div>
           <div className="ielts-progress-right">
             <span className="ielts-pct">{overallProgress}%</span>
-            <span className="ielts-days">{daysLeft} ngày còn lại</span>
+            <span className="ielts-days">{completedWeeks}/40 tuần</span>
           </div>
         </div>
         <div className="ielts-progress-bar">

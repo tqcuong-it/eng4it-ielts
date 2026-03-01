@@ -1,12 +1,10 @@
 /**
- * IELTS 6.0 Roadmap — 10 tháng (03/2026 → 12/2026)
- * 40 tuần, 4 giai đoạn
+ * IELTS 6.0 Roadmap — dựa trên tiến độ thực tế
+ * Không gắn tháng cố định — tùy tốc độ người học
  */
 
 export const roadmap = {
   target: 'IELTS 6.0',
-  startDate: '2026-03-05',
-  examDate: '2026-12-31',
   totalWeeks: 40,
 
   phases: [
@@ -15,7 +13,7 @@ export const roadmap = {
       title: 'Nền tảng',
       subtitle: 'Grammar cơ bản + 1,500 từ vựng',
       icon: '🟢',
-      months: 'Tháng 3–5',
+      duration: '~12 tuần',
       weeks: [1, 12],
       skills: [
         'Present Simple, Continuous, Past, Future, Present Perfect',
@@ -24,14 +22,14 @@ export const roadmap = {
         '1,500 từ vựng thông dụng',
         'Nghe hiểu câu đơn giản',
       ],
-      milestone: 'Nắm vững grammar cơ bản, đọc hiểu đoạn 200-300 từ',
+      milestone: 'Nắm vững grammar cơ bản, đọc hiểu đoạn 200–300 từ',
     },
     {
       id: 'phase-2',
       title: 'Xây dựng kỹ năng',
       subtitle: '4 kỹ năng IELTS + 3,000 từ',
       icon: '🔵',
-      months: 'Tháng 6–8',
+      duration: '~12 tuần',
       weeks: [13, 24],
       skills: [
         'Làm quen format IELTS (Listening, Reading, Writing, Speaking)',
@@ -47,7 +45,7 @@ export const roadmap = {
       title: 'Luyện thi',
       subtitle: 'Practice test + chiến thuật',
       icon: '🟡',
-      months: 'Tháng 9–11',
+      duration: '~12 tuần',
       weeks: [25, 36],
       skills: [
         'Full practice test trong thời gian quy định',
@@ -63,7 +61,7 @@ export const roadmap = {
       title: 'Sprint cuối',
       subtitle: 'Mock test + ôn tập tổng',
       icon: '🔴',
-      months: 'Tháng 12',
+      duration: '~4 tuần',
       weeks: [37, 40],
       skills: [
         'Mock test 2 ngày/lần',
@@ -77,37 +75,34 @@ export const roadmap = {
   ],
 }
 
-// Calculate current week number (1-indexed) from start date
-export function getCurrentWeek() {
-  const start = new Date('2026-03-05')
-  const now = new Date()
-  if (now < start) return 0
-  const diffMs = now - start
-  const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000)) + 1
-  return Math.min(diffWeeks, 40)
+/**
+ * Calculate progress based on completed weeks (from user's lesson data)
+ * completedWeeks = number of weeks where all required exercises are done
+ */
+export function getProgressFromWeeks(completedWeeks) {
+  return Math.min(100, Math.round((completedWeeks / 40) * 100))
 }
 
-// Calculate overall progress percentage
-export function getOverallProgress(currentWeek) {
-  if (currentWeek <= 0) return 0
-  return Math.round((currentWeek / 40) * 100)
-}
-
-// Get current phase based on week
-export function getCurrentPhase(currentWeek) {
-  if (currentWeek <= 0) return null
+/**
+ * Get current phase based on completed weeks
+ */
+export function getPhaseFromWeeks(completedWeeks) {
+  if (completedWeeks <= 0) return roadmap.phases[0]
   for (const phase of roadmap.phases) {
-    if (currentWeek >= phase.weeks[0] && currentWeek <= phase.weeks[1]) {
+    if (completedWeeks < phase.weeks[1]) {
       return phase
     }
   }
-  return roadmap.phases[3] // past week 40 = phase 4
+  return roadmap.phases[3]
 }
 
-// Days until exam
-export function getDaysUntilExam() {
-  const exam = new Date('2026-12-31')
-  const now = new Date()
-  const diff = Math.ceil((exam - now) / (1000 * 60 * 60 * 24))
-  return Math.max(0, diff)
+/**
+ * Get phase progress percentage
+ */
+export function getPhaseProgress(phase, completedWeeks) {
+  if (completedWeeks >= phase.weeks[1]) return 100
+  if (completedWeeks < phase.weeks[0]) return 0
+  const phaseTotal = phase.weeks[1] - phase.weeks[0] + 1
+  const weeksIn = completedWeeks - phase.weeks[0] + 1
+  return Math.round((weeksIn / phaseTotal) * 100)
 }
