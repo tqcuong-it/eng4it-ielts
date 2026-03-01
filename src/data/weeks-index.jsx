@@ -6,7 +6,7 @@
 
 export const weeksIndex = [
   { id: 'week-1', title: 'Tuần 1: Làm Quen Với Tiếng Anh', phase: 1, hasAppData: true },
-  { id: 'week-2', title: 'Tuần 2: Nơi Chốn & Di Chuyển', phase: 1, hasAppData: false,
+  { id: 'week-2', title: 'Tuần 2: Nơi Chốn & Di Chuyển', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Places in Town + There is/There are', blogUrl: 'https://eng4it.com/ielts/week-2/day-1-places-in-town-there-is-there-are/' },
       { id: 'day-2', title: 'Ngày 2: Directions & Transport + Prepositions of Place', blogUrl: 'https://eng4it.com/ielts/week-2/day-2-directions-transport-prepositions-of-place/' },
@@ -17,7 +17,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-2/day-7-review-mini-test-tuan-2/' },
     ]
   },
-  { id: 'week-3', title: 'Tuần 3: Quá Khứ & Trải Nghiệm', phase: 1, hasAppData: false,
+  { id: 'week-3', title: 'Tuần 3: Quá Khứ & Trải Nghiệm', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Past Activities + Past Simple (Regular)', blogUrl: 'https://eng4it.com/ielts/week-3/day-1-past-activities-past-simple-regular-verbs/' },
       { id: 'day-2', title: 'Ngày 2: Travel + Past Simple (Irregular)', blogUrl: 'https://eng4it.com/ielts/week-3/day-2-travel-vocabulary-past-simple-irregular-verbs/' },
@@ -28,7 +28,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-3/day-7-review-mini-test-tuan-3/' },
     ]
   },
-  { id: 'week-4', title: 'Tuần 4: Tương Lai & Kế Hoạch', phase: 1, hasAppData: false,
+  { id: 'week-4', title: 'Tuần 4: Tương Lai & Kế Hoạch', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Plans & Goals + Future (will)', blogUrl: 'https://eng4it.com/ielts/week-4/day-1-plans-goals-future-simple-will/' },
       { id: 'day-2', title: 'Ngày 2: Predictions + Going to', blogUrl: 'https://eng4it.com/ielts/week-4/day-2-predictions-future-going-to/' },
@@ -39,7 +39,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-4/day-7-review-mini-test-tuan-4/' },
     ]
   },
-  { id: 'week-5', title: 'Tuần 5: Sức Khỏe & Cơ Thể', phase: 1, hasAppData: false,
+  { id: 'week-5', title: 'Tuần 5: Sức Khỏe & Cơ Thể', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Body Parts + Imperative', blogUrl: 'https://eng4it.com/ielts/week-5/day-1-body-parts-imperative-cau-menh-lenh/' },
       { id: 'day-2', title: 'Ngày 2: Health & Illness + should/shouldn\'t', blogUrl: 'https://eng4it.com/ielts/week-5/day-2-health-illness-should-shouldn-t/' },
@@ -50,7 +50,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-5/day-7-review-mini-test-tuan-5/' },
     ]
   },
-  { id: 'week-6', title: 'Tuần 6: Công Việc & Nghề Nghiệp', phase: 1, hasAppData: false,
+  { id: 'week-6', title: 'Tuần 6: Công Việc & Nghề Nghiệp', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Jobs & Professions + Present Perfect', blogUrl: 'https://eng4it.com/ielts/week-6/day-1-jobs-professions-present-perfect-gioi-thieu/' },
       { id: 'day-2', title: 'Ngày 2: Work Skills + ever/never', blogUrl: 'https://eng4it.com/ielts/week-6/day-2-work-skills-present-perfect-ever-never/' },
@@ -61,7 +61,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-6/day-7-review-mini-test-tuan-6/' },
     ]
   },
-  { id: 'week-7', title: 'Tuần 7: Giao Tiếp & Xã Hội', phase: 1, hasAppData: false,
+  { id: 'week-7', title: 'Tuần 7: Giao Tiếp & Xã Hội', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Communication + Relative Clauses (who)', blogUrl: 'https://eng4it.com/ielts/week-7/day-1-communication-relative-clauses-who/' },
       { id: 'day-2', title: 'Ngày 2: Social Media + Relative Clauses (which/that)', blogUrl: 'https://eng4it.com/ielts/week-7/day-2-social-media-relative-clauses-which-that/' },
@@ -72,7 +72,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-7/day-7-review-mini-test-tuan-7/' },
     ]
   },
-  { id: 'week-8', title: 'Tuần 8: Thiên Nhiên & Môi Trường', phase: 1, hasAppData: false,
+  { id: 'week-8', title: 'Tuần 8: Thiên Nhiên & Môi Trường', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Animals & Nature + Passive Voice (past)', blogUrl: 'https://eng4it.com/ielts/week-8/day-1-animals-nature-passive-voice-past/' },
       { id: 'day-2', title: 'Ngày 2: Environment Problems + Zero Conditional', blogUrl: 'https://eng4it.com/ielts/week-8/day-2-environment-problems-zero-conditional/' },
@@ -83,7 +83,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-8/day-7-review-mini-test-tuan-8/' },
     ]
   },
-  { id: 'week-9', title: 'Tuần 9: Văn Hóa & Du Lịch', phase: 1, hasAppData: false,
+  { id: 'week-9', title: 'Tuần 9: Văn Hóa & Du Lịch', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Festivals & Celebrations + Used to', blogUrl: 'https://eng4it.com/ielts/week-9/day-1-festivals-celebrations-used-to/' },
       { id: 'day-2', title: 'Ngày 2: Travel & Tourism + Past Perfect', blogUrl: 'https://eng4it.com/ielts/week-9/day-2-travel-tourism-past-perfect-gioi-thieu/' },
@@ -94,7 +94,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-9/day-7-review-mini-test-tuan-9/' },
     ]
   },
-  { id: 'week-10', title: 'Tuần 10: Giáo Dục', phase: 1, hasAppData: false,
+  { id: 'week-10', title: 'Tuần 10: Giáo Dục', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Education System + Modals of Advice', blogUrl: 'https://eng4it.com/ielts/week-10/day-1-education-system-modals-of-advice/' },
       { id: 'day-2', title: 'Ngày 2: University Life + must/have to', blogUrl: 'https://eng4it.com/ielts/week-10/day-2-university-life-modals-of-obligation/' },
@@ -105,7 +105,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-10/day-7-review-mini-test-tuan-10/' },
     ]
   },
-  { id: 'week-11', title: 'Tuần 11: Xã Hội & Cuộc Sống', phase: 1, hasAppData: false,
+  { id: 'week-11', title: 'Tuần 11: Xã Hội & Cuộc Sống', phase: 1, hasAppData: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: City vs Country + Comparatives & Superlatives', blogUrl: 'https://eng4it.com/ielts/week-11/day-1-city-vs-country-comparatives-superlatives-review/' },
       { id: 'day-2', title: 'Ngày 2: Housing + Defining Relative Clauses', blogUrl: 'https://eng4it.com/ielts/week-11/day-2-housing-accommodation-defining-relative-clauses/' },
@@ -116,7 +116,7 @@ export const weeksIndex = [
       { id: 'day-7', title: 'Ngày 7: Ôn tập + Mini Test', blogUrl: 'https://eng4it.com/ielts/week-11/day-7-review-mini-test-tuan-11/' },
     ]
   },
-  { id: 'week-12', title: 'Tuần 12: Ôn Tập Phase 1 🏆', phase: 1, hasAppData: false, milestone: true,
+  { id: 'week-12', title: 'Tuần 12: Ôn Tập Phase 1 🏆', phase: 1, hasAppData: true, milestone: true,
     days: [
       { id: 'day-1', title: 'Ngày 1: Grammar Review — All Tenses', blogUrl: 'https://eng4it.com/ielts/week-12/day-1-grammar-review-all-tenses/' },
       { id: 'day-2', title: 'Ngày 2: Grammar Review — Modals & Conditionals', blogUrl: 'https://eng4it.com/ielts/week-12/day-2-grammar-review-modals-conditionals/' },

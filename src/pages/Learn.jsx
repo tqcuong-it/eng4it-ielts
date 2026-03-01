@@ -1,30 +1,35 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { week1 } from '../data/week1.jsx'
+import { getWeekData } from '../data/loader.jsx'
+import { parseGlobalDayId, findDayInWeek } from '../utils/dayHelper.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 
 export default function Learn() {
-  const { dayId } = useParams()
+  const { dayId: globalDayId } = useParams()
   const { reviewWord, markVocabDone } = useProgress()
-  const day = week1.days.find(d => d.id === dayId)
+  
+  const parsed = parseGlobalDayId(globalDayId)
+  const weekData = parsed ? getWeekData(parsed.weekId) : null
+  const day = weekData ? findDayInWeek(weekData, parsed.dayId) : null
+  
   const [currentIndex, setCurrentIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [mode, setMode] = useState('flashcard') // flashcard | complete
 
-  if (!day) return <div className="page-center">Bài học không tồn tại</div>
+  if (!day || !day.vocabulary) return <div className="page-center">Bài học không tồn tại</div>
 
   const word = day.vocabulary[currentIndex]
   const progress = ((currentIndex + 1) / day.vocabulary.length) * 100
 
   const handleResponse = async (quality) => {
-    const wordId = `w1-${dayId}-${currentIndex}`
+    const wordId = `${parsed.weekId}-${parsed.dayId}-${currentIndex}`
     await reviewWord(wordId, quality)
 
     if (currentIndex < day.vocabulary.length - 1) {
       setCurrentIndex(currentIndex + 1)
       setFlipped(false)
     } else {
-      await markVocabDone(dayId)
+      await markVocabDone(globalDayId)
       setMode('complete')
     }
   }
@@ -37,7 +42,7 @@ export default function Learn() {
           <p>Bạn đã học xong <strong>{day.vocabulary.length} từ</strong> trong bài này.</p>
           <p>Giờ hãy làm bài kiểm tra để mở khóa bài tiếp theo!</p>
           <div className="complete-actions">
-            <Link to={`/quiz/${dayId}`} className="btn-primary">Làm bài kiểm tra →</Link>
+            <Link to={`/quiz/${globalDayId}`} className="btn-primary">Làm bài kiểm tra →</Link>
             <Link to="/" className="btn-secondary">Về trang chủ</Link>
           </div>
         </div>

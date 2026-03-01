@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { week1 } from '../data/week1.jsx'
+import { getWeekData } from '../data/loader.jsx'
+import { parseGlobalDayId, findDayInWeek } from '../utils/dayHelper.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 
 export default function Quiz() {
-  const { dayId } = useParams()
+  const { dayId: globalDayId } = useParams()
   const { submitQuiz } = useProgress()
-  const day = week1.days.find(d => d.id === dayId)
+  
+  const parsed = parseGlobalDayId(globalDayId)
+  const weekData = parsed ? getWeekData(parsed.weekId) : null
+  const day = weekData ? findDayInWeek(weekData, parsed.dayId) : null
 
   const [currentQ, setCurrentQ] = useState(0)
   const [score, setScore] = useState(0)
@@ -15,7 +19,7 @@ export default function Quiz() {
   const [finished, setFinished] = useState(false)
   const [quizResult, setQuizResult] = useState(null)
 
-  if (!day) return <div className="page-center">Bài kiểm tra không tồn tại</div>
+  if (!day || !day.quiz) return <div className="page-center">Bài kiểm tra không tồn tại</div>
 
   const question = day.quiz[currentQ]
   const progress = ((currentQ + 1) / day.quiz.length) * 100
@@ -36,7 +40,7 @@ export default function Quiz() {
       setShowResult(false)
     } else {
       // Submit quiz
-      const result = await submitQuiz(dayId, score + (selected === question.answer ? 1 : 0), day.quiz.length)
+      const result = await submitQuiz(globalDayId, score + (selected === question.answer ? 1 : 0), day.quiz.length)
       setQuizResult(result)
       setFinished(true)
     }
@@ -54,7 +58,7 @@ export default function Quiz() {
           <p>
             {quizResult.passed
               ? 'Bạn đã pass! Bài tiếp theo đã được mở khóa 🔓'
-              : `Cần đạt ${day.passScore}% để mở khóa bài tiếp. Hãy ôn lại và thử lại nhé!`
+              : `Cần đạt ${day.passScore || 80}% để mở khóa bài tiếp. Hãy ôn lại và thử lại nhé!`
             }
           </p>
           <div className="complete-actions">
@@ -62,7 +66,7 @@ export default function Quiz() {
               <Link to="/" className="btn-primary">Về Dashboard →</Link>
             ) : (
               <>
-                <Link to={`/learn/${dayId}`} className="btn-primary">Học lại</Link>
+                <Link to={`/learn/${globalDayId}`} className="btn-primary">Học lại</Link>
                 <button className="btn-secondary" onClick={() => {
                   setCurrentQ(0)
                   setScore(0)
@@ -93,7 +97,7 @@ export default function Quiz() {
 
       <div className="quiz-card">
         <div className="quiz-type">
-          {question.type === 'translate' ? '🔤 Dịch từ' : '✏️ Điền từ'}
+          {question.type === 'translate' ? '🔤 Dịch từ' : question.type === 'correct' ? '✅ Chọn câu đúng' : '✏️ Điền từ'}
         </div>
         <h3 className="quiz-question">{question.question}</h3>
 

@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { week1 } from '../data/week1.jsx'
+import { getWeekData } from '../data/loader.jsx'
+import { parseGlobalDayId, findDayInWeek } from '../utils/dayHelper.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 
 export default function Reading() {
-  const { dayId } = useParams()
+  const { dayId: globalDayId } = useParams()
   const { submitQuiz } = useProgress()
-  const day = week1.days.find(d => d.id === dayId)
+  
+  const parsed = parseGlobalDayId(globalDayId)
+  const weekData = parsed ? getWeekData(parsed.weekId) : null
+  const day = weekData ? findDayInWeek(weekData, parsed.dayId) : null
   
   const [currentQ, setCurrentQ] = useState(0)
   const [score, setScore] = useState(0)
@@ -35,7 +39,7 @@ export default function Reading() {
       setShowResult(false)
     } else {
       const finalScore = score + (selected === question.answer ? 1 : 0)
-      const result = await submitQuiz(`${dayId}-reading`, finalScore, reading.questions.length)
+      const result = await submitQuiz(`${globalDayId}-reading`, finalScore, reading.questions.length)
       setQuizResult(result)
       setFinished(true)
     }

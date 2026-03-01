@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useProgress } from '../hooks/useProgress.jsx'
-import { getAllVocabulary } from '../data/week1.jsx'
+import { getAllVocabularyFromAllWeeks } from '../data/loader.jsx'
 
 export default function Review() {
   const { getDueWords, reviewWord, vocabProgress } = useProgress()
@@ -9,7 +9,7 @@ export default function Review() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [done, setDone] = useState(false)
-  const allVocab = getAllVocabulary()
+  const allVocab = getAllVocabularyFromAllWeeks()
 
   useEffect(() => {
     const due = getDueWords()
