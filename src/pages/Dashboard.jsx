@@ -36,10 +36,24 @@ export default function Dashboard() {
   const phases = [1, 2, 3, 4]
 
 
+  // Check if a week's Day 1 should be unlocked
+  const isWeekUnlocked = (weekId) => {
+    // Week 1 always unlocked
+    if (weekId === 'week-1') return true
+    // Previous week must be completed
+    const weekNum = parseInt(weekId.replace('week-', ''))
+    const prevWeekId = `week-${weekNum - 1}`
+    const prevWeekData = getWeekData(prevWeekId)
+    if (!prevWeekData) return true // If prev week has no app data, unlock anyway
+    // Check all days of previous week are completed
+    return prevWeekData.days.every(d => isDayCompleted(`${prevWeekId}-${d.id}`))
+  }
+
   // Render interactive day (any week with app data)
   const renderInteractiveDay = (day, index, weekId) => {
     const globalDayId = `${weekId}-${day.id}`
-    const unlocked = index === 0 || isDayCompleted(`${weekId}-day-${index}`)
+    const weekOpen = isWeekUnlocked(weekId)
+    const unlocked = weekOpen && (index === 0 || isDayCompleted(`${weekId}-day-${index}`))
     const completed = isDayCompleted(globalDayId)
     const exStatus = getExerciseStatus(globalDayId)
     const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
