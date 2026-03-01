@@ -79,38 +79,37 @@ export default function Dashboard() {
                 </div>
 
                 {unlocked && (
-                  <div className="exercise-section">
-                    <div className="exercise-label">Tự chọn</div>
-                    <div className="exercise-grid optional">
-                      <Link to={`/learn/${day.id}`} className={`exercise-btn optional ${exStatus.vocab ? 'done' : ''}`}>
-                        <span className="ex-icon">📚</span>
-                        <span className="ex-label">Từ vựng</span>
-                        <span className="ex-status">{exStatus.vocab ? '✅' : '○'}</span>
-                      </Link>
-                      <Link to={`/grammar/${day.id}`} className={`exercise-btn optional ${exStatus.grammar ? 'done' : ''}`}>
-                        <span className="ex-icon">📝</span>
-                        <span className="ex-label">Ngữ pháp</span>
-                        <span className="ex-status">{exStatus.grammar ? '✅' : '○'}</span>
-                      </Link>
-                    </div>
-                    <div className="exercise-label required-label">Bắt buộc ⭐</div>
-                    <div className="exercise-grid required">
-                      <Link to={`/reading/${day.id}`} className={`exercise-btn ${exStatus.reading ? 'done' : ''}`}>
-                        <span className="ex-icon">📖</span>
-                        <span className="ex-label">Đọc hiểu</span>
-                        <span className="ex-status">{exStatus.reading ? '✅' : '○'}</span>
-                      </Link>
-                      <Link to={`/listening/${day.id}`} className={`exercise-btn ${exStatus.listening ? 'done' : ''}`}>
-                        <span className="ex-icon">🎧</span>
-                        <span className="ex-label">Nghe</span>
-                        <span className="ex-status">{exStatus.listening ? '✅' : '○'}</span>
-                      </Link>
-                      <Link to={`/quiz/${day.id}`} className={`exercise-btn ${exStatus.quiz ? 'done' : ''}`}>
-                        <span className="ex-icon">🧪</span>
-                        <span className="ex-label">Kiểm tra</span>
-                        <span className="ex-status">{exStatus.quiz ? '✅' : '○'}</span>
-                      </Link>
-                    </div>
+                  <div className="exercise-list">
+                    <Link to={`/learn/${day.id}`} className={`exercise-row ${exStatus.vocab ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
+                      <span className="ex-name">📚 Từ vựng</span>
+                      <span className="ex-tag optional-tag">tự chọn</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <Link to={`/grammar/${day.id}`} className={`exercise-row ${exStatus.grammar ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
+                      <span className="ex-name">📝 Ngữ pháp</span>
+                      <span className="ex-tag optional-tag">tự chọn</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <Link to={`/reading/${day.id}`} className={`exercise-row ${exStatus.reading ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.reading ? '✅' : '○'}</span>
+                      <span className="ex-name">📖 Đọc hiểu</span>
+                      <span className="ex-tag required-tag">bắt buộc</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <Link to={`/listening/${day.id}`} className={`exercise-row ${exStatus.listening ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.listening ? '✅' : '○'}</span>
+                      <span className="ex-name">🎧 Nghe</span>
+                      <span className="ex-tag required-tag">bắt buộc</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <Link to={`/quiz/${day.id}`} className={`exercise-row ${exStatus.quiz ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.quiz ? '✅' : '○'}</span>
+                      <span className="ex-name">🧪 Kiểm tra</span>
+                      <span className="ex-tag required-tag">bắt buộc</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
                   </div>
                 )}
 

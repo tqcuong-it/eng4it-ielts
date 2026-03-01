@@ -570,53 +570,41 @@ a { color: var(--primary); text-decoration: none; }
 }
 .lesson-top .lesson-status { font-size: 24px; flex-shrink: 0; }
 
-/* === Exercise Grid === */
-.exercise-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-}
-.exercise-btn {
+/* Exercise List */
+.exercise-list {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+}
+.exercise-row {
+  display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 10px 6px;
+  gap: 10px;
+  padding: 10px 12px;
   border-radius: 8px;
   background: var(--bg);
-  border: 1px solid var(--border);
   text-decoration: none;
   color: var(--text);
-  transition: all 0.15s;
+  transition: background 0.15s;
   min-height: 44px;
 }
-.exercise-btn:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
-}
-.exercise-btn.done {
-  border-color: var(--success);
-  background: var(--success-light);
-}
-.ex-icon { font-size: 20px; }
-.ex-label { font-size: 11px; font-weight: 500; }
-.ex-status { font-size: 12px; color: var(--text-secondary); }
-.exercise-btn.done .ex-status { color: var(--success); }
-
-/* Exercise sections */
-.exercise-section { margin-top: 6px; }
-.exercise-label {
-  font-size: 11px;
-  color: var(--text-secondary);
+.exercise-row:hover { background: var(--primary-light, rgba(27,112,184,0.06)); }
+.exercise-row.done { opacity: 0.7; }
+.ex-status-icon { font-size: 14px; flex-shrink: 0; width: 20px; text-align: center; }
+.ex-name { flex: 1; font-size: 14px; font-weight: 500; }
+.ex-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
   font-weight: 500;
-  margin-bottom: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
-.exercise-label.required-label { color: var(--primary); margin-top: 8px; }
-.exercise-grid.optional { margin-bottom: 4px; }
-.exercise-btn.optional { opacity: 0.8; border-style: dashed; }
-.exercise-btn.optional.done { opacity: 1; border-style: solid; }
+.optional-tag { color: var(--text-secondary); background: var(--border); }
+.required-tag { color: var(--primary); background: rgba(27,112,184,0.1); }
+[data-theme="dark"] .required-tag { background: rgba(109,179,232,0.15); }
+.ex-arrow { color: var(--text-secondary); font-size: 18px; font-weight: 300; }
 
 .locked-msg {
   text-align: center;
@@ -627,8 +615,4 @@ a { color: var(--primary); text-decoration: none; }
   border-radius: 8px;
 }
 
-@media (max-width: 640px) {
-  .exercise-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+
