@@ -1090,3 +1090,51 @@ a { color: var(--primary); text-decoration: none; }
   font-size: 15px;
   font-weight: 700;
 }
+
+/* === UI/UX Audit Fixes === */
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .lesson-card:hover, .resource-link:hover, .ielts-progress-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Prevent hover layout shift — use box-shadow instead of translateY */
+.lesson-card:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.resource-link:hover {
+  transform: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.ielts-progress-card:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Prevent horizontal scroll */
+.app {
+  overflow-x: hidden;
+}
+
+/* Mobile table scroll */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

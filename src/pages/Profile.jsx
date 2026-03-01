@@ -53,7 +53,7 @@ export default function Profile() {
           <label>Email</label>
           <input type="email" value={user?.email || ''} disabled />
 
-          {message && <p className={message.startsWith('✅') ? 'success-msg' : 'error-msg'}>{message}</p>}
+          {message && <p role="alert" className={message.startsWith('✅') ? 'success-msg' : 'error-msg'}>{message}</p>}
 
           <button type="submit" className="btn-primary btn-full" disabled={saving}>
             {saving ? 'Đang lưu...' : 'Lưu thay đổi'}
