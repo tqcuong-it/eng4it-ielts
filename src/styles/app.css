@@ -948,3 +948,145 @@ a { color: var(--primary); text-decoration: none; }
 .lesson-card.blog-day h3 { font-size: 14px; font-weight: 500; }
 .blog-hint { font-size: 12px; color: var(--primary); margin-top: 2px; }
 
+
+/* === Profile Page === */
+.profile-page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.back-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.profile-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  overflow: hidden;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar span {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.profile-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+
+.profile-card label:first-of-type {
+  margin-top: 0;
+}
+
+.profile-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+
+.profile-card input:focus {
+  border-color: var(--primary);
+}
+
+.profile-card input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.profile-card .btn-primary {
+  margin-top: 20px;
+}
+
+.btn-danger {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--danger, #e74c3c);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-danger:hover {
+  background: rgba(231, 76, 60, 0.06);
+}
+
+.success-msg {
+  color: var(--success, #2ecc71);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* === Avatar in Dashboard Header === */
+.avatar-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.avatar-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+}

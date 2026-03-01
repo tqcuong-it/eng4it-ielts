@@ -9,6 +9,7 @@ import Grammar from './pages/Grammar'
 import Reading from './pages/Reading'
 import Listening from './pages/Listening'
 import Roadmap from './pages/Roadmap'
+import Profile from './pages/Profile'
 import './styles/app.css'
 
 function ProtectedRoute({ children }) {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/listening/:dayId" element={<ProtectedRoute><Listening /></ProtectedRoute>} />
             <Route path="/review" element={<ProtectedRoute><Review /></ProtectedRoute>} />
             <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
         </div>
       </BrowserRouter>

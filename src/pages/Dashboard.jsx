@@ -171,7 +171,12 @@ export default function Dashboard() {
         </div>
         <div className="header-actions">
           <ThemeToggle />
-          <button className="btn-secondary" onClick={signOut}>Đăng xuất</button>
+          <Link to="/profile" className="avatar-link">
+            {user?.user_metadata?.avatar_url 
+              ? <img src={user.user_metadata.avatar_url} alt="" className="avatar-img" />
+              : <span className="avatar-placeholder">{(user?.user_metadata?.name || user?.email || 'U')[0].toUpperCase()}</span>
+            }
+          </Link>
         </div>
       </header>
 
