@@ -5,6 +5,9 @@ import Login from './pages/Login'
 import Learn from './pages/Learn'
 import Quiz from './pages/Quiz'
 import Review from './pages/Review'
+import Grammar from './pages/Grammar'
+import Reading from './pages/Reading'
+import Listening from './pages/Listening'
 import './styles/app.css'
 
 function ProtectedRoute({ children }) {
@@ -31,6 +34,9 @@ function App() {
             <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/learn/:dayId" element={<ProtectedRoute><Learn /></ProtectedRoute>} />
             <Route path="/quiz/:dayId" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
+            <Route path="/grammar/:dayId" element={<ProtectedRoute><Grammar /></ProtectedRoute>} />
+            <Route path="/reading/:dayId" element={<ProtectedRoute><Reading /></ProtectedRoute>} />
+            <Route path="/listening/:dayId" element={<ProtectedRoute><Listening /></ProtectedRoute>} />
             <Route path="/review" element={<ProtectedRoute><Review /></ProtectedRoute>} />
           </Routes>
         </div>

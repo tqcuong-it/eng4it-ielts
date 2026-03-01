@@ -82,14 +82,23 @@ export default function Dashboard() {
                 </div>
                 <div className="lesson-actions">
                   {unlocked && (
-                    <>
-                      <Link to={`/learn/${day.id}`} className="btn-primary">
-                        {passed ? 'Học lại' : 'Bắt đầu'}
+                    <div className="lesson-actions-grid">
+                      <Link to={`/learn/${day.id}`} className="action-btn vocab">
+                        📚 Từ vựng
                       </Link>
-                      <Link to={`/quiz/${day.id}`} className="btn-secondary">
-                        Kiểm tra
+                      <Link to={`/grammar/${day.id}`} className="action-btn grammar">
+                        📝 Ngữ pháp
                       </Link>
-                    </>
+                      <Link to={`/reading/${day.id}`} className="action-btn reading">
+                        📖 Đọc hiểu
+                      </Link>
+                      <Link to={`/listening/${day.id}`} className="action-btn listening">
+                        🎧 Nghe
+                      </Link>
+                      <Link to={`/quiz/${day.id}`} className="action-btn quiz">
+                        🧪 Kiểm tra
+                      </Link>
+                    </div>
                   )}
                   {!unlocked && (
                     <span className="locked-text">Pass bài trước để mở khóa</span>

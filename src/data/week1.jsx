@@ -46,6 +46,58 @@ export const week1 = {
         { type: 'translate', question: '"Hiểu" tiếng Anh là gì?', answer: 'understand', options: ['listen', 'understand', 'learn', 'speak'] },
       ],
       passScore: 80,
+      grammar: {
+        title: 'Present Simple (Thì hiện tại đơn)',
+        explanation: {
+          vi: 'Dùng để nói về thói quen, sự thật. Cấu trúc: I/You/We/They + V | He/She/It + V-s/es',
+          formula: [
+            { type: 'positive', pattern: 'S + V(s/es)', example: 'I work in Japan. / She works in Tokyo.' },
+            { type: 'negative', pattern: "S + don't/doesn't + V", example: "I don't like coffee. / He doesn't eat meat." },
+            { type: 'question', pattern: 'Do/Does + S + V?', example: 'Do you speak English? / Does she live here?' },
+          ]
+        },
+        exercises: [
+          { type: 'fill', question: 'I ___ (go) to work every day.', answer: 'go', options: ['go', 'goes', 'going', 'went'] },
+          { type: 'fill', question: 'She ___ (work) in a hospital.', answer: 'works', options: ['work', 'works', 'working', 'worked'] },
+          { type: 'fill', question: 'They ___ (not like) cold weather.', answer: "don't like", options: ["don't like", "doesn't like", "not like", "no like"] },
+          { type: 'fill', question: '___ you ___ English?', answer: 'Do...speak', options: ['Do...speak', 'Does...speak', 'Are...speak', 'Is...speak'] },
+          { type: 'fill', question: 'He ___ (not drink) coffee.', answer: "doesn't drink", options: ["doesn't drink", "don't drink", "not drink", "no drink"] },
+          { type: 'correct', question: 'Which sentence is CORRECT?', answer: 'She works every day.', options: ['She work every day.', 'She works every day.', 'She working every day.', 'She is works every day.'] },
+          { type: 'correct', question: 'Which is CORRECT?', answer: "Do you like rice?", options: ["Does you like rice?", "Do you like rice?", "Are you like rice?", "You do like rice?"] },
+          { type: 'fill', question: 'My father ___ (read) newspaper every morning.', answer: 'reads', options: ['read', 'reads', 'reading', 'is read'] },
+        ],
+        passScore: 80,
+      },
+      reading: {
+        title: 'Reading: My Daily Life',
+        passage: "My name is Cuong. I live in Japan. I work in an office. Every morning, I eat breakfast and drink coffee. I go to work at eight. I read emails and write code. I speak Vietnamese and English. I come home at six. I eat dinner with my family. I like my life.",
+        wordCount: 55,
+        questions: [
+          { question: 'Where does Cuong live?', answer: 'Japan', options: ['Vietnam', 'Japan', 'America', 'Korea'] },
+          { question: 'What does he drink every morning?', answer: 'coffee', options: ['tea', 'water', 'coffee', 'juice'] },
+          { question: 'What time does he go to work?', answer: 'eight', options: ['seven', 'eight', 'nine', 'six'] },
+          { question: 'What languages does he speak?', answer: 'Vietnamese and English', options: ['Japanese and English', 'Vietnamese and English', 'Vietnamese and Japanese', 'English only'] },
+          { question: 'When does he come home?', answer: 'six', options: ['five', 'six', 'seven', 'eight'] },
+        ],
+        passScore: 80,
+      },
+      listening: {
+        title: 'Listening Practice',
+        description: 'Nghe và trả lời câu hỏi. Nhấn nút ▶️ để nghe.',
+        resources: [
+          {
+            title: 'BBC Learning English — Hello!',
+            url: 'https://www.bbc.co.uk/learningenglish/english/course/lower-intermediate/unit-1/session-1',
+            description: 'Bài nghe về cách chào hỏi cơ bản',
+          }
+        ],
+        exercises: [
+          { type: 'listen-fill', question: 'Complete: "Hello, my ___ is John."', answer: 'name', options: ['name', 'work', 'home', 'day'] },
+          { type: 'listen-fill', question: 'Complete: "I ___ in London."', answer: 'live', options: ['work', 'live', 'go', 'come'] },
+          { type: 'listen-fill', question: 'Complete: "Nice to ___ you."', answer: 'meet', options: ['see', 'meet', 'know', 'have'] },
+        ],
+        passScore: 60,
+      },
     },
     {
       id: 'day-2',
@@ -86,6 +138,55 @@ export const week1 = {
         { type: 'translate', question: '"Năm" tiếng Anh là gì?', answer: 'year', options: ['month', 'week', 'day', 'year'] },
       ],
       passScore: 80,
+      grammar: {
+        title: 'Adverbs of Frequency (Trạng từ tần suất)',
+        explanation: {
+          vi: 'Dùng để nói về mức độ thường xuyên. Vị trí: trước động từ thường, sau "to be".',
+          formula: [
+            { type: 'rule', pattern: 'S + always/usually/often/sometimes/rarely/never + V', example: 'I always wake up at 7.' },
+            { type: 'rule', pattern: 'S + am/is/are + always/usually/...', example: 'She is always on time.' },
+          ]
+        },
+        exercises: [
+          { type: 'fill', question: 'I ___ eat breakfast at 7 AM.', answer: 'always', options: ['always', 'never', 'not', 'am'] },
+          { type: 'order', question: 'Put in correct order: "late / she / is / never"', answer: 'She is never late.', options: ['She is never late.', 'She never is late.', 'Never she is late.', 'Is she never late.'] },
+          { type: 'fill', question: 'He ___ goes to bed after midnight.', answer: 'sometimes', options: ['sometimes', 'always time', 'every', 'all'] },
+          { type: 'fill', question: 'We are ___ happy to help.', answer: 'always', options: ['always', 'never not', 'every', 'much'] },
+          { type: 'correct', question: 'Which is CORRECT?', answer: 'I usually drink tea.', options: ['I drink usually tea.', 'I usually drink tea.', 'Usually I tea drink.', 'I tea usually drink.'] },
+          { type: 'fill', question: 'They ___ play football on weekends.', answer: 'often', options: ['often', 'every', 'all', 'much'] },
+        ],
+        passScore: 80,
+      },
+      reading: {
+        title: 'Reading: My Week',
+        passage: "I always wake up at seven in the morning. I sometimes eat breakfast at home. I usually go to work at eight. I work from Monday to Friday. I never work on weekends. I sometimes study English in the evening. I always go to bed before eleven at night. On Saturday, I often go to the park with my daughter. On Sunday, I usually stay home.",
+        wordCount: 68,
+        questions: [
+          { question: 'What time does he wake up?', answer: 'seven', options: ['six', 'seven', 'eight', 'nine'] },
+          { question: 'Does he always eat breakfast at home?', answer: 'No, sometimes', options: ['Yes, always', 'No, sometimes', 'No, never', 'Yes, usually'] },
+          { question: 'When does he study English?', answer: 'in the evening', options: ['in the morning', 'at night', 'in the evening', 'at noon'] },
+          { question: 'What does he do on Saturday?', answer: 'go to the park', options: ['stay home', 'go to the park', 'go to work', 'study English'] },
+          { question: 'Does he work on weekends?', answer: 'never', options: ['always', 'sometimes', 'never', 'usually'] },
+        ],
+        passScore: 80,
+      },
+      listening: {
+        title: 'Listening Practice',
+        description: 'Nghe và trả lời câu hỏi.',
+        resources: [
+          {
+            title: 'BBC Learning English — Time',
+            url: 'https://www.bbc.co.uk/learningenglish/english/course/lower-intermediate/unit-1/session-2',
+            description: 'Bài nghe về thời gian và daily routine',
+          }
+        ],
+        exercises: [
+          { type: 'listen-fill', question: '"What ___ is it?" — "It is three o\'clock."', answer: 'time', options: ['time', 'hour', 'day', 'date'] },
+          { type: 'listen-fill', question: '"I ___ get up at six thirty."', answer: 'usually', options: ['usually', 'yesterday', 'tomorrow', 'now'] },
+          { type: 'listen-fill', question: '"There are seven ___ in a week."', answer: 'days', options: ['days', 'hours', 'months', 'years'] },
+        ],
+        passScore: 60,
+      },
     },
   ],
 }
