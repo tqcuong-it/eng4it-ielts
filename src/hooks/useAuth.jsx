@@ -8,34 +8,22 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Handle OAuth callback — detect tokens in URL hash
-    const hashParams = new URLSearchParams(window.location.hash.substring(1))
-    const accessToken = hashParams.get('access_token')
-    const refreshToken = hashParams.get('refresh_token')
-
-    if (accessToken && refreshToken) {
-      // Set session from URL tokens, then clean up URL
-      supabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken })
-        .then(({ data: { session } }) => {
-          setUser(session?.user ?? null)
-          setLoading(false)
-          // Clean URL hash
-          window.history.replaceState(null, '', window.location.pathname)
-        })
-        .catch(() => {
-          setLoading(false)
-        })
-    } else {
-      // Normal session check
-      supabase.auth.getSession().then(({ data: { session } }) => {
-        setUser(session?.user ?? null)
-        setLoading(false)
-      })
-    }
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    // Listen for auth changes FIRST (catches OAuth callback auto-detection)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('[Auth]', event, session?.user?.email)
       setUser(session?.user ?? null)
+      setLoading(false)
+
+      // Clean URL hash after OAuth callback
+      if (event === 'SIGNED_IN' && window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname)
+      }
+    })
+
+    // Check existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null)
+      setLoading(false)
     })
 
     return () => subscription.unsubscribe()
