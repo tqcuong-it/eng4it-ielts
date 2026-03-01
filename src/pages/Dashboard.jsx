@@ -80,6 +80,17 @@ export default function Dashboard() {
 
                 {unlocked && (
                   <div className="exercise-list">
+                    <Link to={`/learn/${day.id}`} className={`exercise-row optional ${exStatus.vocab ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
+                      <span className="ex-name">📚 Từ vựng</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <Link to={`/grammar/${day.id}`} className={`exercise-row optional ${exStatus.grammar ? 'done' : ''}`}>
+                      <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
+                      <span className="ex-name">📝 Ngữ pháp</span>
+                      <span className="ex-arrow">›</span>
+                    </Link>
+                    <div className="exercise-divider"></div>
                     <Link to={`/reading/${day.id}`} className={`exercise-row ${exStatus.reading ? 'done' : ''}`}>
                       <span className="ex-status-icon">{exStatus.reading ? '✅' : '○'}</span>
                       <span className="ex-name">📖 Đọc hiểu</span>
@@ -93,17 +104,6 @@ export default function Dashboard() {
                     <Link to={`/quiz/${day.id}`} className={`exercise-row ${exStatus.quiz ? 'done' : ''}`}>
                       <span className="ex-status-icon">{exStatus.quiz ? '✅' : '○'}</span>
                       <span className="ex-name">🧪 Kiểm tra</span>
-                      <span className="ex-arrow">›</span>
-                    </Link>
-                    <div className="exercise-divider"></div>
-                    <Link to={`/learn/${day.id}`} className={`exercise-row optional ${exStatus.vocab ? 'done' : ''}`}>
-                      <span className="ex-status-icon">{exStatus.vocab ? '✅' : '○'}</span>
-                      <span className="ex-name">📚 Từ vựng</span>
-                      <span className="ex-arrow">›</span>
-                    </Link>
-                    <Link to={`/grammar/${day.id}`} className={`exercise-row optional ${exStatus.grammar ? 'done' : ''}`}>
-                      <span className="ex-status-icon">{exStatus.grammar ? '✅' : '○'}</span>
-                      <span className="ex-name">📝 Ngữ pháp</span>
                       <span className="ex-arrow">›</span>
                     </Link>
                   </div>
