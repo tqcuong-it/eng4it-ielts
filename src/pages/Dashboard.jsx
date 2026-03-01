@@ -107,7 +107,7 @@ export default function Dashboard() {
                     <div className="lesson-status">✅</div>
                     <div className="lesson-info">
                       <h3>{day.title}</h3>
-                      <p>{dayProgress}%</p>
+                      <p>{dayProgress}% · {requiredPassed}/3 bắt buộc</p>
                     </div>
                     <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
                   </div>
@@ -158,7 +158,7 @@ export default function Dashboard() {
                         <div className="day-progress-bar">
                           <div className="day-progress-fill" style={{ width: `${dayProgress}%` }} />
                         </div>
-                        <span>{dayProgress}%</span>
+                        <span>{requiredPassed}/3</span>
                       </div>
                       {day.blogUrl && (
                         <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
