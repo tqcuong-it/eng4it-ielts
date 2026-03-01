@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase.jsx'
 import { useAuth } from './useAuth.jsx'
 import { sm2, getWordStatus } from '../lib/srs.jsx'
+import { isBlogListening } from '../data/blogListening.jsx'
 
 // Required exercises to unlock next day (vocab & grammar are optional)
 const REQUIRED_TYPES = ['reading', 'listening', 'quiz']
@@ -144,17 +145,22 @@ export function useProgress() {
     }
   }
 
-  // Check if REQUIRED exercises (reading, listening, quiz) are passed
-  const isDayCompleted = (dayId) => {
+  // Check if REQUIRED exercises are passed
+  // If listening is on blog (not in-app), skip it from requirements
+  const isDayCompleted = (dayId, globalDayId) => {
     const status = getExerciseStatus(dayId)
-    return REQUIRED_TYPES.every(type => status[type] === true)
+    const required = isBlogListening(globalDayId)
+      ? REQUIRED_TYPES.filter(t => t !== 'listening')
+      : REQUIRED_TYPES
+    return required.every(type => status[type] === true)
   }
 
   // Unlock: day 1 always open; next day requires ALL exercises of previous day passed
-  const isLessonUnlocked = (dayIndex) => {
+  const isLessonUnlocked = (dayIndex, weekNum) => {
     if (dayIndex === 0) return true
     const prevDayId = `day-${dayIndex}`
-    return isDayCompleted(prevDayId)
+    const prevGlobalDayId = weekNum ? `week-${weekNum}-day-${dayIndex}` : null
+    return isDayCompleted(prevDayId, prevGlobalDayId)
   }
 
   const getDueWords = () => {

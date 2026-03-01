@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/useAuth.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 import { Link } from 'react-router-dom'
 import { weeksIndex, PHASE_NAMES } from '../data/weeks-index.jsx'
+import { isBlogListening, getBlogListeningUrl } from '../data/blogListening.jsx'
 import { getWeekData, hasWeekData } from '../data/loader.jsx'
 import { getProgressFromWeeks, getPhaseFromWeeks } from '../data/roadmap.jsx'
 import ThemeToggle from '../components/ThemeToggle.jsx'
@@ -56,13 +57,24 @@ export default function Dashboard() {
     const unlocked = weekOpen && (index === 0 || isDayCompleted(`${weekId}-day-${index}`))
     const completed = isDayCompleted(globalDayId)
     const exStatus = getExerciseStatus(globalDayId)
-    const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
+    const blogListen = isBlogListening(globalDayId)
+    const requiredItems = blogListen
+      ? [exStatus.reading, exStatus.quiz]
+      : [exStatus.reading, exStatus.listening, exStatus.quiz]
+    const requiredPassed = requiredItems.filter(Boolean).length
+    const requiredTotal = requiredItems.length
     let dayProgress = 0
     if (exStatus.vocab) dayProgress += 10
     if (exStatus.grammar) dayProgress += 10
-    if (exStatus.reading) dayProgress += 27
-    if (exStatus.listening) dayProgress += 27
-    if (exStatus.quiz) dayProgress += 26
+    if (blogListen) {
+      // Listening on blog → redistribute weight to reading + quiz
+      if (exStatus.reading) dayProgress += 40
+      if (exStatus.quiz) dayProgress += 40
+    } else {
+      if (exStatus.reading) dayProgress += 27
+      if (exStatus.listening) dayProgress += 27
+      if (exStatus.quiz) dayProgress += 26
+    }
     const isExpanded = expandedDays[globalDayId] || false
 
     if (completed) {
@@ -72,7 +84,7 @@ export default function Dashboard() {
             <div className="lesson-status">✅</div>
             <div className="lesson-info">
               <h3>{day.title}</h3>
-              <p>{dayProgress}% · {requiredPassed}/3 bắt buộc</p>
+              <p>{dayProgress}% · {requiredPassed}/{requiredTotal} bắt buộc</p>
             </div>
             <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
           </div>
@@ -92,7 +104,7 @@ export default function Dashboard() {
                 <div className="day-progress-bar">
                   <div className="day-progress-fill" style={{ width: `${dayProgress}%` }} />
                 </div>
-                <span>{requiredPassed}/3</span>
+                <span>{requiredPassed}/{requiredTotal}</span>
               </div>
               {day.blogUrl && (
                 <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">📖 Xem giáo án trên blog</a>
@@ -135,11 +147,19 @@ export default function Dashboard() {
         <span className="ex-name">📖 Đọc hiểu</span>
         <span className="ex-arrow">›</span>
       </Link>
-      <Link to={`/listening/${globalDayId}`} className={`exercise-row ${exStatus.listening ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
-        <span className="ex-status-icon">{exStatus.listening ? '✅' : '○'}</span>
-        <span className="ex-name">🎧 Nghe</span>
-        <span className="ex-arrow">›</span>
-      </Link>
+      {isBlogListening(globalDayId) ? (
+        <a href={getBlogListeningUrl(globalDayId)} target="_blank" rel="noopener" className="exercise-row optional" onClick={e => e.stopPropagation()}>
+          <span className="ex-status-icon">🔗</span>
+          <span className="ex-name">🎧 Nghe (Blog)</span>
+          <span className="ex-arrow">↗</span>
+        </a>
+      ) : (
+        <Link to={`/listening/${globalDayId}`} className={`exercise-row ${exStatus.listening ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
+          <span className="ex-status-icon">{exStatus.listening ? '✅' : '○'}</span>
+          <span className="ex-name">🎧 Nghe</span>
+          <span className="ex-arrow">›</span>
+        </Link>
+      )}
       <Link to={`/quiz/${globalDayId}`} className={`exercise-row ${exStatus.quiz ? 'done' : ''}`} onClick={e => e.stopPropagation()}>
         <span className="ex-status-icon">{exStatus.quiz ? '✅' : '○'}</span>
         <span className="ex-name">🧪 Kiểm tra</span>
