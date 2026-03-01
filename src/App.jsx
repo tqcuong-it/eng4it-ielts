@@ -11,12 +11,6 @@ import Listening from './pages/Listening'
 import Roadmap from './pages/Roadmap'
 import './styles/app.css'
 
-// Debug: log URL on load to check OAuth redirect
-if (window.location.hash || window.location.search) {
-  console.log('[OAuth Debug] hash:', window.location.hash?.substring(0, 100))
-  console.log('[OAuth Debug] search:', window.location.search?.substring(0, 100))
-}
-
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
   if (loading) return <div className="page-center"><div className="spinner" /></div>
