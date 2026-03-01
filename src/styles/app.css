@@ -274,6 +274,7 @@ a { color: var(--primary); text-decoration: none; }
 .flashcard-front, .flashcard-back {
   position: absolute;
   inset: 0;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background: var(--card);
   border-radius: var(--radius);
@@ -283,9 +284,27 @@ a { color: var(--primary); text-decoration: none; }
   align-items: center;
   justify-content: center;
   padding: 24px;
+  /* Extra hide for Safari/mobile */
+  -webkit-transform: translateZ(0);
 }
 
-.flashcard-back { transform: rotateY(180deg); }
+.flashcard-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Hide back content until flipped */
+.flashcard:not(.flipped) .flashcard-back {
+  visibility: hidden;
+}
+.flashcard.flipped .flashcard-front {
+  visibility: hidden;
+}
 
 .word-en { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
 .word-ipa { font-size: 18px; color: var(--text-secondary); margin-bottom: 12px; }
