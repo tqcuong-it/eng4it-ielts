@@ -10,6 +10,7 @@ import Reading from './pages/Reading'
 import Listening from './pages/Listening'
 import Roadmap from './pages/Roadmap'
 import Profile from './pages/Profile'
+import Admin from './pages/Admin'
 import './styles/app.css'
 
 function ProtectedRoute({ children }) {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/review" element={<ProtectedRoute><Review /></ProtectedRoute>} />
             <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           </Routes>
         </div>
       </BrowserRouter>
