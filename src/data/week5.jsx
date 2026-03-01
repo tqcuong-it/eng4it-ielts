@@ -10,7 +10,7 @@ export const week5 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Body Parts + Imperative (Câu mệnh lệnh)',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-1-body-parts-imperative-cau-menh-lenh/',
       vocabulary: [
         { en: 'head', vi: 'đầu', ipa: '/hed/', example: 'My head hurts.' },
         { en: 'eye', vi: 'mắt', ipa: '/aɪ/', example: 'She has brown eyes.' },
@@ -102,7 +102,7 @@ export const week5 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Health & Illness + Should / Shouldn\'t',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-2-health-illness-should-shouldn-t/',
       vocabulary: [
         { en: 'sick', vi: 'bị ốm', ipa: '/sɪk/', example: 'I feel sick today.' },
         { en: 'healthy', vi: 'khỏe mạnh', ipa: '/ˈhelθi/', example: 'She is very healthy.' },
@@ -194,7 +194,7 @@ export const week5 = {
     {
       id: 'day-3',
       title: 'Ngày 3: At the Doctor + Can / Can\'t',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-3-at-the-doctor-can-can-t/',
       vocabulary: [
         { en: 'doctor', vi: 'bác sĩ', ipa: '/ˈdɒktər/', example: 'I need to see a doctor.' },
         { en: 'nurse', vi: 'y tá', ipa: '/nɜːrs/', example: 'The nurse checks my blood pressure.' },
@@ -286,7 +286,7 @@ export const week5 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Healthy Habits + Have to / Don\'t have to',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-4-healthy-habits-have-to-don-t-have-to/',
       vocabulary: [
         { en: 'exercise', vi: 'tập thể dục', ipa: '/ˈeksərsaɪz/', example: 'I exercise every morning.' },
         { en: 'walk', vi: 'đi bộ', ipa: '/wɔːk/', example: 'I walk to work every day.' },
@@ -378,7 +378,7 @@ export const week5 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Emotions & Feelings + Adjectives (-ed / -ing)',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-5-emotions-feelings-adjectives-ed-ing/',
       vocabulary: [
         { en: 'happy', vi: 'vui vẻ', ipa: '/ˈhæpi/', example: 'I am happy today.' },
         { en: 'sad', vi: 'buồn', ipa: '/sæd/', example: 'She looks sad.' },
@@ -469,7 +469,7 @@ export const week5 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Medicine & Treatment + Must / Mustn\'t',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-6-medicine-treatment-must-mustn-t/',
       vocabulary: [
         { en: 'medicine', vi: 'thuốc', ipa: '/ˈmedɪsɪn/', example: 'Take your medicine after meals.' },
         { en: 'pill', vi: 'viên thuốc', ipa: '/pɪl/', example: 'Take two pills in the morning.' },
@@ -561,7 +561,7 @@ export const week5 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Tuần 5',
-      blogUrl: 'https://eng4it.com/ielts/week-5/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-5/day-7-review-mini-test-tuan-5/',
       vocabulary: [
         { en: 'head', vi: 'đầu', ipa: '/hed/', example: 'My head hurts.' },
         { en: 'shoulder', vi: 'vai', ipa: '/ˈʃoʊldər/', example: 'He has broad shoulders.' },

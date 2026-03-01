@@ -11,7 +11,7 @@ export const week8 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Animals & Nature + Passive Voice (Past)',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-1-animals-nature-passive-voice-past/',
       vocabulary: [
         { en: 'animal', vi: 'động vật', ipa: '/ˈænɪməl/', example: 'Many animals live in the forest.' },
         { en: 'forest', vi: 'rừng', ipa: '/ˈfɒrɪst/', example: 'The forest is full of trees.' },
@@ -103,7 +103,7 @@ export const week8 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Environmental Problems + Zero Conditional',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-2-environment-problems-zero-conditional/',
       vocabulary: [
         { en: 'pollution', vi: 'ô nhiễm', ipa: '/pəˈluːʃən/', example: 'Pollution damages the environment.' },
         { en: 'waste', vi: 'rác thải', ipa: '/weɪst/', example: "Don't waste water." },
@@ -194,7 +194,7 @@ export const week8 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Climate & Weather + First Conditional (Review)',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-3-climate-weather-first-conditional-review/',
       vocabulary: [
         { en: 'climate', vi: 'khí hậu', ipa: '/ˈklaɪmət/', example: 'The climate is changing fast.' },
         { en: 'weather', vi: 'thời tiết', ipa: '/ˈweðər/', example: 'The weather is hot today.' },
@@ -286,7 +286,7 @@ export const week8 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Conservation + Second Conditional',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-4-conservation-second-conditional/',
       vocabulary: [
         { en: 'conservation', vi: 'bảo tồn', ipa: '/ˌkɒnsərˈveɪʃən/', example: 'Conservation protects wildlife.' },
         { en: 'protect', vi: 'bảo vệ', ipa: '/prəˈtekt/', example: 'We must protect endangered animals.' },
@@ -377,7 +377,7 @@ export const week8 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Natural Disasters + Modals of Possibility',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-5-natural-disasters-modals-of-possibility/',
       vocabulary: [
         { en: 'earthquake', vi: 'động đất', ipa: '/ˈɜːrθkweɪk/', example: 'Japan often has earthquakes.' },
         { en: 'tsunami', vi: 'sóng thần', ipa: '/tsuːˈnɑːmi/', example: 'A tsunami hit the coast.' },
@@ -469,7 +469,7 @@ export const week8 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Green Living + Gerunds vs Infinitives',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-6-green-living-gerunds-vs-infinitives/',
       vocabulary: [
         { en: 'eco-friendly', vi: 'thân thiện với môi trường', ipa: '/ˌiːkoʊ ˈfrendli/', example: 'This bag is eco-friendly.' },
         { en: 'organic', vi: 'hữu cơ', ipa: '/ɔːrˈɡænɪk/', example: 'I buy organic vegetables.' },
@@ -560,7 +560,7 @@ export const week8 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Thiên Nhiên & Môi Trường',
-      blogUrl: 'https://eng4it.com/ielts/week-8/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-8/day-7-review-mini-test-tuan-8/',
       vocabulary: [
         { en: 'animal', vi: 'động vật', ipa: '/ˈænɪməl/', example: 'Many animals live in the forest.' },
         { en: 'pollution', vi: 'ô nhiễm', ipa: '/pəˈluːʃən/', example: 'Pollution damages the environment.' },

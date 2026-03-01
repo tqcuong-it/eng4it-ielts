@@ -11,7 +11,7 @@ export const week12 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Grammar Review — All Tenses',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-1-grammar-review-all-tenses/',
       vocabulary: [
         { en: 'present', vi: 'hiện tại', ipa: '/ˈprezənt/', example: 'She works here at present.' },
         { en: 'past', vi: 'quá khứ', ipa: '/pæst/', example: 'In the past, life was simpler.' },
@@ -106,7 +106,7 @@ export const week12 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Grammar Review — Modals & Conditionals',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-2-grammar-review-modals-conditionals/',
       vocabulary: [
         { en: 'ability', vi: 'khả năng', ipa: '/əˈbɪləti/', example: 'She has the ability to learn fast.' },
         { en: 'permission', vi: 'sự cho phép', ipa: '/pərˈmɪʃən/', example: 'You need permission to enter.' },
@@ -199,7 +199,7 @@ export const week12 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Grammar Review — Passive, Reported Speech, Relative Clauses',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-3-grammar-review-passive-voice-reported-speech-relative/',
       vocabulary: [
         { en: 'passive', vi: 'bị động', ipa: '/ˈpæsɪv/', example: 'English is spoken worldwide. (passive)' },
         { en: 'active', vi: 'chủ động', ipa: '/ˈæktɪv/', example: 'People speak English. (active)' },
@@ -291,7 +291,7 @@ export const week12 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Vocabulary Review — 1,500 Words Checkpoint',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-4-vocabulary-review-1-500-words-checkpoint/',
       vocabulary: [
         { en: 'appointment', vi: 'cuộc hẹn', ipa: '/əˈpɔɪntmənt/', example: 'I have a doctor\'s appointment.' },
         { en: 'ingredient', vi: 'nguyên liệu', ipa: '/ɪnˈɡriːdiənt/', example: 'What is the main ingredient?' },
@@ -382,7 +382,7 @@ export const week12 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Reading Practice — 2 Passages',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-5-reading-practice-2-passages/',
       vocabulary: [
         { en: 'bilingual', vi: 'song ngữ', ipa: '/baɪˈlɪŋɡwəl/', example: 'Bilingual people have better memory.' },
         { en: 'memory', vi: 'trí nhớ', ipa: '/ˈmeməri/', example: 'Learning languages improves memory.' },
@@ -474,7 +474,7 @@ export const week12 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Listening Practice — BBC/TED Exercises',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-6-listening-practice-bbc-ted-exercises/',
       vocabulary: [
         { en: 'listen', vi: 'nghe', ipa: '/ˈlɪsən/', example: 'Listen carefully to the instructions.' },
         { en: 'transcript', vi: 'bản ghi', ipa: '/ˈtrænskrɪpt/', example: 'Read the transcript after listening.' },
@@ -571,7 +571,7 @@ export const week12 = {
     {
       id: 'day-7',
       title: 'Ngày 7: 🏆 PHASE 1 MILESTONE TEST — 50 Câu Hỏi',
-      blogUrl: 'https://eng4it.com/ielts/week-12/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-12/day-7-full-phase-1-milestone-test/',
       vocabulary: [
         { en: 'milestone', vi: 'cột mốc', ipa: '/ˈmaɪlstoʊn/', example: 'Completing Phase 1 is a milestone.' },
         { en: 'achievement', vi: 'thành tựu', ipa: '/əˈtʃiːvmənt/', example: 'This is a great achievement.' },

@@ -10,7 +10,7 @@ export const week7 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Communication + Relative Clauses (who)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-1-communication-relative-clauses-who/',
       vocabulary: [
         { en: 'communicate', vi: 'giao tiếp', ipa: '/kəˈmjuːnɪkeɪt/', example: 'We communicate every day.' },
         { en: 'conversation', vi: 'cuộc trò chuyện', ipa: '/ˌkɒnvəˈseɪʃən/', example: 'I had a long conversation with her.' },
@@ -102,7 +102,7 @@ export const week7 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Social Media + Relative Clauses (which/that)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-2-social-media-relative-clauses-which-that/',
       vocabulary: [
         { en: 'post', vi: 'đăng bài', ipa: '/poʊst/', example: 'I post photos every day.' },
         { en: 'share', vi: 'chia sẻ', ipa: '/ʃeər/', example: 'She shared a funny video.' },
@@ -194,7 +194,7 @@ export const week7 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Phone Conversations + Reported Speech (Giới thiệu)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-3-phone-conversations-reported-speech-gioi-thieu/',
       vocabulary: [
         { en: 'call', vi: 'gọi điện', ipa: '/kɔːl/', example: 'I will call you later.' },
         { en: 'answer', vi: 'trả lời', ipa: '/ˈɑːnsər/', example: 'Please answer the phone.' },
@@ -286,7 +286,7 @@ export const week7 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Email & Letters + Reported Speech (Statements)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-4-email-letters-reported-speech-statements/',
       vocabulary: [
         { en: 'email', vi: 'thư điện tử', ipa: '/ˈiːmeɪl/', example: 'I sent an email to my boss.' },
         { en: 'letter', vi: 'thư', ipa: '/ˈletər/', example: 'She wrote a letter to her friend.' },
@@ -378,7 +378,7 @@ export const week7 = {
     {
       id: 'day-5',
       title: 'Ngày 5: News & Media + Passive Voice (Giới thiệu)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-5-news-media-passive-voice-gioi-thieu/',
       vocabulary: [
         { en: 'news', vi: 'tin tức', ipa: '/njuːz/', example: 'I watch the news every morning.' },
         { en: 'headline', vi: 'tiêu đề (tin)', ipa: '/ˈhedlaɪn/', example: 'The headline was very shocking.' },
@@ -470,7 +470,7 @@ export const week7 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Internet & Technology + Passive Voice (Present)',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-6-internet-technology-passive-voice-present/',
       vocabulary: [
         { en: 'internet', vi: 'mạng Internet', ipa: '/ˈɪntərnet/', example: 'The internet is used everywhere.' },
         { en: 'website', vi: 'trang web', ipa: '/ˈwebsaɪt/', example: 'This website is very useful.' },
@@ -562,7 +562,7 @@ export const week7 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Mini Test Tuần 7',
-      blogUrl: 'https://eng4it.com/ielts/week-7/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-7/day-7-review-mini-test-tuan-7/',
       vocabulary: [
         { en: 'communicate', vi: 'giao tiếp', ipa: '/kəˈmjuːnɪkeɪt/', example: 'We communicate every day.' },
         { en: 'persuade', vi: 'thuyết phục', ipa: '/pəˈsweɪd/', example: 'She persuaded me to join.' },

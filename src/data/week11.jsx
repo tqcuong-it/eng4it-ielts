@@ -11,7 +11,7 @@ export const week11 = {
     {
       id: 'day-1',
       title: 'Ngày 1: City vs Country + Comparatives & Superlatives Review',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-1-city-vs-country-comparatives-superlatives-review/',
       vocabulary: [
         { en: 'urban', vi: 'thuộc thành thị', ipa: '/ˈɜːrbən/', example: 'Urban areas have more jobs.' },
         { en: 'rural', vi: 'thuộc nông thôn', ipa: '/ˈrʊrəl/', example: 'Rural life is quieter.' },
@@ -103,7 +103,7 @@ export const week11 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Housing & Accommodation + Defining Relative Clauses',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-2-housing-accommodation-defining-relative-clauses/',
       vocabulary: [
         { en: 'accommodation', vi: 'chỗ ở', ipa: '/əˌkɒməˈdeɪʃən/', example: 'We need to find accommodation.' },
         { en: 'apartment', vi: 'căn hộ', ipa: '/əˈpɑːrtmənt/', example: 'She lives in a small apartment.' },
@@ -196,7 +196,7 @@ export const week11 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Crime & Law + Non-defining Relative Clauses',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-3-crime-law-non-defining-relative-clauses/',
       vocabulary: [
         { en: 'crime', vi: 'tội phạm', ipa: '/kraɪm/', example: 'Crime rates are increasing.' },
         { en: 'criminal', vi: 'tội phạm (người)', ipa: '/ˈkrɪmɪnəl/', example: 'The criminal was caught by police.' },
@@ -289,7 +289,7 @@ export const week11 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Government & Politics + Passive Voice Review',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-4-government-politics-passive-voice-review/',
       vocabulary: [
         { en: 'government', vi: 'chính phủ', ipa: '/ˈɡʌvərnmənt/', example: 'The government passed a new law.' },
         { en: 'politics', vi: 'chính trị', ipa: '/ˈpɒlətɪks/', example: 'She is interested in politics.' },
@@ -382,7 +382,7 @@ export const week11 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Social Issues + Reported Speech (Questions)',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-5-social-issues-reported-speech-questions/',
       vocabulary: [
         { en: 'poverty', vi: 'nghèo đói', ipa: '/ˈpɒvərti/', example: 'Poverty is a global problem.' },
         { en: 'homeless', vi: 'vô gia cư', ipa: '/ˈhoʊmləs/', example: 'The number of homeless people is rising.' },
@@ -473,7 +473,7 @@ export const week11 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Money & Economy + Reported Speech (Commands)',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-6-money-economy-reported-speech-commands/',
       vocabulary: [
         { en: 'economy', vi: 'nền kinh tế', ipa: '/ɪˈkɒnəmi/', example: 'The economy is growing slowly.' },
         { en: 'income', vi: 'thu nhập', ipa: '/ˈɪnkʌm/', example: 'His monthly income is $3,000.' },
@@ -566,7 +566,7 @@ export const week11 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Tuần 11',
-      blogUrl: 'https://eng4it.com/ielts/week-11/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-11/day-7-review-mini-test-tuan-11/',
       vocabulary: [
         { en: 'urban', vi: 'thuộc thành thị', ipa: '/ˈɜːrbən/', example: 'Urban areas have more jobs.' },
         { en: 'accommodation', vi: 'chỗ ở', ipa: '/əˌkɒməˈdeɪʃən/', example: 'We need to find accommodation.' },

@@ -10,7 +10,7 @@ export const week2 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Places in Town + There is/There are',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-1-places-in-town-there-is-there-are/',
       vocabulary: [
         { en: 'bank', vi: 'ngân hàng', ipa: '/bæŋk/', example: 'There is a bank near my house.' },
         { en: 'hospital', vi: 'bệnh viện', ipa: '/ˈhɑːspɪtl/', example: 'The hospital is very big.' },
@@ -102,7 +102,7 @@ export const week2 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Directions & Transport + Prepositions of Place',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-2-directions-transport-prepositions-of-place/',
       vocabulary: [
         { en: 'left', vi: 'bên trái', ipa: '/left/', example: 'Turn left at the bank.' },
         { en: 'right', vi: 'bên phải', ipa: '/raɪt/', example: 'Turn right at the corner.' },
@@ -194,7 +194,7 @@ export const week2 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Home & Rooms + Prepositions of Time',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-3-home-rooms-prepositions-of-time/',
       vocabulary: [
         { en: 'house', vi: 'nhà', ipa: '/haʊs/', example: 'My house is small.' },
         { en: 'apartment', vi: 'căn hộ', ipa: '/əˈpɑːrtmənt/', example: 'I live in an apartment.' },
@@ -286,7 +286,7 @@ export const week2 = {
     {
       id: 'day-4',
       title: 'Ngày 4: School & Work + Articles (a/an/the)',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-4-school-work-articles-a-an-the/',
       vocabulary: [
         { en: 'teacher', vi: 'giáo viên', ipa: '/ˈtiːtʃər/', example: 'The teacher is kind.' },
         { en: 'student', vi: 'học sinh/sinh viên', ipa: '/ˈstuːdnt/', example: 'I am a student.' },
@@ -378,7 +378,7 @@ export const week2 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Shopping & Money + How much/How many',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-5-shopping-money-how-much-how-many/',
       vocabulary: [
         { en: 'shop', vi: 'cửa hàng', ipa: '/ʃɑːp/', example: 'I go to the shop.' },
         { en: 'buy', vi: 'mua', ipa: '/baɪ/', example: 'I buy food every day.' },
@@ -470,7 +470,7 @@ export const week2 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Countries & Nationalities + Comparatives',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-6-countries-nationalities-comparatives/',
       vocabulary: [
         { en: 'Vietnam', vi: 'Việt Nam', ipa: '/ˌviːetˈnæm/', example: 'I come from Vietnam.' },
         { en: 'Vietnamese', vi: 'người Việt / tiếng Việt', ipa: '/ˌviːetnəˈmiːz/', example: 'I am Vietnamese.' },
@@ -562,7 +562,7 @@ export const week2 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Mini Test Tuần 2',
-      blogUrl: 'https://eng4it.com/ielts/week-2/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-2/day-7-review-mini-test-tuan-2/',
       vocabulary: [
         { en: 'hospital', vi: 'bệnh viện', ipa: '/ˈhɑːspɪtl/', example: 'The hospital is near my house.' },
         { en: 'supermarket', vi: 'siêu thị', ipa: '/ˈsuːpərˌmɑːrkɪt/', example: 'I buy food at the supermarket.' },

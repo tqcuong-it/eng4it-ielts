@@ -10,7 +10,7 @@ export const week1 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Greetings & Basics + Present Simple',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-1-greetings-basics-present-simple/',
       vocabulary: [
         { en: 'hello', vi: 'xin chào', ipa: '/həˈloʊ/', example: 'Hello, how are you?' },
         { en: 'goodbye', vi: 'tạm biệt', ipa: '/ɡʊdˈbaɪ/', example: 'Goodbye, see you tomorrow!' },
@@ -102,7 +102,7 @@ export const week1 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Numbers & Time + Adverbs of Frequency',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-2-numbers-time-trang-tu-tan-suat/',
       vocabulary: [
         { en: 'one', vi: 'một', ipa: '/wʌn/', example: 'I have one brother.' },
         { en: 'two', vi: 'hai', ipa: '/tuː/', example: 'Two cups of coffee, please.' },
@@ -191,7 +191,7 @@ export const week1 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Family & People + Present Continuous',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-3-family-people-present-continuous/',
       vocabulary: [
         { en: 'family', vi: 'gia đình', ipa: '/ˈfæmɪli/', example: 'I have a small family.' },
         { en: 'father', vi: 'bố', ipa: '/ˈfɑːðər/', example: 'My father lives in Vietnam.' },
@@ -283,7 +283,7 @@ export const week1 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Food & Drink + Ôn tập giữa tuần',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-4-food-drink-on-tap-giua-tuan/',
       vocabulary: [
         { en: 'food', vi: 'đồ ăn', ipa: '/fuːd/', example: 'Japanese food is delicious.' },
         { en: 'water', vi: 'nước', ipa: '/ˈwɔːtər/', example: 'I drink water every day.' },
@@ -372,7 +372,7 @@ export const week1 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Places & Directions + Past Simple',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-5-places-directions-past-simple/',
       vocabulary: [
         { en: 'house', vi: 'ngôi nhà', ipa: '/haʊs/', example: 'I live in a small house.' },
         { en: 'home', vi: 'nhà (nơi ở)', ipa: '/hoʊm/', example: 'I go home at six.' },
@@ -464,7 +464,7 @@ export const week1 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Daily Activities + Past Continuous',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-6-daily-activities-past-continuous/',
       vocabulary: [
         { en: 'wake up', vi: 'thức dậy', ipa: '/weɪk ʌp/', example: 'I wake up at six.' },
         { en: 'get up', vi: 'dậy (ra khỏi giường)', ipa: '/ɡɛt ʌp/', example: 'I get up at 6:10.' },
@@ -556,7 +556,7 @@ export const week1 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test',
-      blogUrl: 'https://eng4it.com/ielts/week-1/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-1/day-7-review-mini-test-tuan-1/',
       vocabulary: [
         { en: 'hello', vi: 'xin chào', ipa: '/həˈloʊ/', example: 'Hello, how are you?' },
         { en: 'family', vi: 'gia đình', ipa: '/ˈfæməli/', example: 'I love my family.' },

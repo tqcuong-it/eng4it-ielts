@@ -10,7 +10,7 @@ export const week3 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Past Activities + Past Simple (Regular verbs)',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-1-past-activities-past-simple-regular-verbs/',
       vocabulary: [
         { en: 'walked', vi: 'đã đi bộ', ipa: '/wɔːkt/', example: 'I walked to the park yesterday.' },
         { en: 'talked', vi: 'đã nói chuyện', ipa: '/tɔːkt/', example: 'She talked to her friend.' },
@@ -102,7 +102,7 @@ export const week3 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Travel Vocabulary + Past Simple (Irregular verbs)',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-2-travel-vocabulary-past-simple-irregular-verbs/',
       vocabulary: [
         { en: 'went', vi: 'đã đi (go)', ipa: '/wɛnt/', example: 'I went to Tokyo last week.' },
         { en: 'saw', vi: 'đã nhìn thấy (see)', ipa: '/sɔː/', example: 'She saw the Eiffel Tower.' },
@@ -194,7 +194,7 @@ export const week3 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Hobbies & Sports + Past Simple (Negative & Questions)',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-3-hobbies-sports-past-simple-negative-questions/',
       vocabulary: [
         { en: 'soccer/football', vi: 'bóng đá', ipa: '/ˈsɑːkər/', example: 'I played soccer yesterday.' },
         { en: 'basketball', vi: 'bóng rổ', ipa: '/ˈbæskɪtbɔːl/', example: 'He played basketball in school.' },
@@ -286,7 +286,7 @@ export const week3 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Life Events + Past Continuous',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-4-life-events-past-continuous-was-were-v-ing/',
       vocabulary: [
         { en: 'born', vi: 'sinh ra', ipa: '/bɔːrn/', example: 'I was born in 1995.' },
         { en: 'grow up', vi: 'lớn lên', ipa: '/ɡroʊ ʌp/', example: 'I grew up in Vietnam.' },
@@ -378,7 +378,7 @@ export const week3 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Childhood Memories + Past Simple vs Past Continuous',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-5-childhood-memories-past-simple-vs-past-continuous/',
       vocabulary: [
         { en: 'childhood', vi: 'tuổi thơ', ipa: '/ˈtʃaɪldhʊd/', example: 'My childhood was happy.' },
         { en: 'remember', vi: 'nhớ', ipa: '/rɪˈmɛmbər/', example: 'I remember my first school.' },
@@ -470,7 +470,7 @@ export const week3 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Historical Events + Time Expressions',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-6-historical-events-time-expressions/',
       vocabulary: [
         { en: 'history', vi: 'lịch sử', ipa: '/ˈhɪstəri/', example: 'I studied history at school.' },
         { en: 'event', vi: 'sự kiện', ipa: '/ɪˈvɛnt/', example: 'It was an important event.' },
@@ -563,7 +563,7 @@ export const week3 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Mini Test Tuần 3',
-      blogUrl: 'https://eng4it.com/ielts/week-3/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-3/day-7-review-mini-test-tuan-3/',
       vocabulary: [
         { en: 'walked', vi: 'đã đi bộ', ipa: '/wɔːkt/', example: 'I walked to school.' },
         { en: 'went', vi: 'đã đi', ipa: '/wɛnt/', example: 'I went to Tokyo.' },

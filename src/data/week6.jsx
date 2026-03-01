@@ -10,7 +10,7 @@ export const week6 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Jobs & Professions + Present Perfect (Giới thiệu)',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-1-jobs-professions-present-perfect-gioi-thieu/',
       vocabulary: [
         { en: 'job', vi: 'công việc', ipa: '/dʒɑːb/', example: 'I love my job.' },
         { en: 'career', vi: 'sự nghiệp', ipa: '/kəˈrɪr/', example: 'She has a great career.' },
@@ -102,7 +102,7 @@ export const week6 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Work Skills + Present Perfect (ever/never)',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-2-work-skills-present-perfect-ever-never/',
       vocabulary: [
         { en: 'skill', vi: 'kỹ năng', ipa: '/skɪl/', example: 'Communication is an important skill.' },
         { en: 'teamwork', vi: 'làm việc nhóm', ipa: '/ˈtiːmwɜːrk/', example: 'Teamwork makes work easier.' },
@@ -193,7 +193,7 @@ export const week6 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Office Vocabulary + Present Perfect (already/yet)',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-3-office-vocabulary-present-perfect-already-yet/',
       vocabulary: [
         { en: 'meeting', vi: 'cuộc họp', ipa: '/ˈmiːtɪŋ/', example: 'We have a meeting at 10 AM.' },
         { en: 'report', vi: 'báo cáo', ipa: '/rɪˈpɔːrt/', example: 'I have finished the report.' },
@@ -285,7 +285,7 @@ export const week6 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Job Interview + Present Perfect (for/since)',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-4-job-interview-present-perfect-for-since/',
       vocabulary: [
         { en: 'interview', vi: 'phỏng vấn', ipa: '/ˈɪntərvjuː/', example: 'I have a job interview tomorrow.' },
         { en: 'apply', vi: 'ứng tuyển', ipa: '/əˈplaɪ/', example: 'She applied for the position.' },
@@ -376,7 +376,7 @@ export const week6 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Work Routines + Present Perfect vs Past Simple',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-5-work-routines-present-perfect-vs-past-simple/',
       vocabulary: [
         { en: 'commute', vi: 'đi lại (đi làm)', ipa: '/kəˈmjuːt/', example: 'I commute by train.' },
         { en: 'arrive', vi: 'đến', ipa: '/əˈraɪv/', example: 'I arrive at the office at 9 AM.' },
@@ -467,7 +467,7 @@ export const week6 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Career Development + Superlatives (the most/the -est)',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-6-career-development-superlatives-the-most-the-est/',
       vocabulary: [
         { en: 'career', vi: 'sự nghiệp', ipa: '/kəˈrɪr/', example: 'She has a successful career.' },
         { en: 'goal', vi: 'mục tiêu', ipa: '/ɡoʊl/', example: 'My goal is to become a manager.' },
@@ -559,7 +559,7 @@ export const week6 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Tuần 6',
-      blogUrl: 'https://eng4it.com/ielts/week-6/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-6/day-7-review-mini-test-tuan-6/',
       vocabulary: [
         { en: 'employee', vi: 'nhân viên', ipa: '/ɪmˈplɔɪiː/', example: 'He is a new employee.' },
         { en: 'colleague', vi: 'đồng nghiệp', ipa: '/ˈkɑːliːɡ/', example: 'My colleague is friendly.' },

@@ -10,7 +10,7 @@ export const week4 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Plans & Goals + Future Simple (will)',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-1-plans-goals-future-simple-will/',
       vocabulary: [
         { en: 'plan', vi: 'kế hoạch', ipa: '/plæn/', example: 'I have a plan for next year.' },
         { en: 'goal', vi: 'mục tiêu', ipa: '/ɡoʊl/', example: 'My goal is to pass IELTS.' },
@@ -102,7 +102,7 @@ export const week4 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Predictions + Future (going to)',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-2-predictions-future-going-to/',
       vocabulary: [
         { en: 'predict', vi: 'dự đoán', ipa: '/prɪˈdɪkt/', example: 'Scientists predict the weather.' },
         { en: 'expect', vi: 'kỳ vọng', ipa: '/ɪkˈspekt/', example: 'I expect it is going to rain.' },
@@ -194,7 +194,7 @@ export const week4 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Schedules + Present Simple for Future',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-3-schedules-present-simple-for-future/',
       vocabulary: [
         { en: 'schedule', vi: 'lịch trình', ipa: '/ˈskedʒuːl/', example: 'The schedule starts at 8 AM.' },
         { en: 'timetable', vi: 'thời khóa biểu', ipa: '/ˈtaɪmˌteɪbəl/', example: 'Check the timetable for the class.' },
@@ -286,7 +286,7 @@ export const week4 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Travel Plans + Future Continuous',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-4-travel-plans-future-continuous/',
       vocabulary: [
         { en: 'travel', vi: 'du lịch', ipa: '/ˈtrævəl/', example: 'I love to travel.' },
         { en: 'trip', vi: 'chuyến đi', ipa: '/trɪp/', example: 'We are planning a trip.' },
@@ -378,7 +378,7 @@ export const week4 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Career Goals + Will vs Going to',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-5-career-goals-will-vs-going-to/',
       vocabulary: [
         { en: 'career', vi: 'sự nghiệp', ipa: '/kəˈrɪr/', example: 'I want to build a great career.' },
         { en: 'job', vi: 'công việc', ipa: '/dʒɑːb/', example: 'He is going to find a new job.' },
@@ -470,7 +470,7 @@ export const week4 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Technology & Future + First Conditional',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-6-technology-future-first-conditional/',
       vocabulary: [
         { en: 'technology', vi: 'công nghệ', ipa: '/tekˈnɑːlədʒi/', example: 'Technology changes every day.' },
         { en: 'robot', vi: 'rô bốt', ipa: '/ˈroʊbɑːt/', example: 'Robots will help us in the future.' },
@@ -562,7 +562,7 @@ export const week4 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Mini Test Tuần 4',
-      blogUrl: 'https://eng4it.com/ielts/week-4/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-4/day-7-review-mini-test-tuan-4/',
       vocabulary: [
         { en: 'goal', vi: 'mục tiêu', ipa: '/ɡoʊl/', example: 'My goal is to pass IELTS.' },
         { en: 'improve', vi: 'cải thiện', ipa: '/ɪmˈpruːv/', example: 'I will improve my English.' },

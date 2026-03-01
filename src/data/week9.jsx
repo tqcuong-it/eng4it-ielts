@@ -11,7 +11,7 @@ export const week9 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Festivals & Celebrations + Used to',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-1-festivals-celebrations-used-to/',
       vocabulary: [
         { en: 'festival', vi: 'lễ hội', ipa: '/ˈfestɪvəl/', example: 'The festival is in January.' },
         { en: 'celebration', vi: 'sự kỷ niệm', ipa: '/ˌselɪˈbreɪʃən/', example: 'It was a big celebration.' },
@@ -103,7 +103,7 @@ export const week9 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Travel & Tourism + Past Perfect (Giới thiệu)',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-2-travel-tourism-past-perfect-gioi-thieu/',
       vocabulary: [
         { en: 'travel', vi: 'du lịch', ipa: '/ˈtrævəl/', example: 'I love to travel.' },
         { en: 'tourist', vi: 'du khách', ipa: '/ˈtʊrɪst/', example: 'Many tourists visit this place.' },
@@ -195,7 +195,7 @@ export const week9 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Cultural Differences + Past Perfect (Ứng dụng)',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-3-cultural-differences-past-perfect-ung-dung/',
       vocabulary: [
         { en: 'culture', vi: 'văn hóa', ipa: '/ˈkʌltʃər/', example: 'Every country has a unique culture.' },
         { en: 'behavior', vi: 'hành vi', ipa: '/bɪˈheɪvjər/', example: 'His behavior was very polite.' },
@@ -288,7 +288,7 @@ export const week9 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Food Culture + Too / Enough',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-4-food-culture-too-enough/',
       vocabulary: [
         { en: 'cuisine', vi: 'ẩm thực', ipa: '/kwɪˈziːn/', example: 'Vietnamese cuisine is famous worldwide.' },
         { en: 'ingredient', vi: 'nguyên liệu', ipa: '/ɪnˈɡriːdiənt/', example: 'Fresh ingredients make better food.' },
@@ -381,7 +381,7 @@ export const week9 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Art & Music + Quantifiers',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-5-art-music-quantifiers/',
       vocabulary: [
         { en: 'art', vi: 'nghệ thuật', ipa: '/ɑːrt/', example: 'I love modern art.' },
         { en: 'artist', vi: 'nghệ sĩ', ipa: '/ˈɑːrtɪst/', example: 'Picasso was a famous artist.' },
@@ -474,7 +474,7 @@ export const week9 = {
     {
       id: 'day-6',
       title: 'Ngày 6: World Heritage + Compound Sentences',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-6-world-heritage-compound-sentences/',
       vocabulary: [
         { en: 'heritage', vi: 'di sản', ipa: '/ˈherɪtɪdʒ/', example: 'Hoi An is a world heritage site.' },
         { en: 'ancient', vi: 'cổ đại', ipa: '/ˈeɪnʃənt/', example: 'The ancient temple is 1000 years old.' },
@@ -568,7 +568,7 @@ export const week9 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Tuần 9',
-      blogUrl: 'https://eng4it.com/ielts/week-9/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-9/day-7-review-mini-test-tuan-9/',
       vocabulary: [
         { en: 'festival', vi: 'lễ hội', ipa: '/ˈfestɪvəl/', example: 'The festival is in January.' },
         { en: 'travel', vi: 'du lịch', ipa: '/ˈtrævəl/', example: 'I love to travel.' },

@@ -11,7 +11,7 @@ export const week10 = {
     {
       id: 'day-1',
       title: 'Ngày 1: Inventions & Discoveries + Reported Speech (Statements)',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-1/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-1-education-system-modals-of-advice/',
       vocabulary: [
         { en: 'invention', vi: 'phát minh', ipa: '/ɪnˈvenʃən/', example: 'The telephone was a great invention.' },
         { en: 'discover', vi: 'phát hiện', ipa: '/dɪˈskʌvər/', example: 'Scientists discovered a new planet.' },
@@ -103,7 +103,7 @@ export const week10 = {
     {
       id: 'day-2',
       title: 'Ngày 2: Computers & Internet + Reported Speech (Questions)',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-2/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-2-university-life-modals-of-obligation/',
       vocabulary: [
         { en: 'computer', vi: 'máy tính', ipa: '/kəmˈpjuːtər/', example: 'I use a computer for work.' },
         { en: 'internet', vi: 'mạng internet', ipa: '/ˈɪntərnet/', example: 'The internet connects the whole world.' },
@@ -194,7 +194,7 @@ export const week10 = {
     {
       id: 'day-3',
       title: 'Ngày 3: Space & Exploration + Passive Voice (Present)',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-3/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-3-learning-methods-modals-of-ability/',
       vocabulary: [
         { en: 'space', vi: 'không gian', ipa: '/speɪs/', example: 'Humans want to explore space.' },
         { en: 'planet', vi: 'hành tinh', ipa: '/ˈplænɪt/', example: 'Mars is the fourth planet from the Sun.' },
@@ -286,7 +286,7 @@ export const week10 = {
     {
       id: 'day-4',
       title: 'Ngày 4: Medicine & Health Tech + Defining Relative Clauses',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-4/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-4-exams-tests-third-conditional/',
       vocabulary: [
         { en: 'medicine', vi: 'y học, thuốc', ipa: '/ˈmedɪsɪn/', example: 'Modern medicine saves many lives.' },
         { en: 'treatment', vi: 'phương pháp điều trị', ipa: '/ˈtriːtmənt/', example: 'The treatment was very effective.' },
@@ -379,7 +379,7 @@ export const week10 = {
     {
       id: 'day-5',
       title: 'Ngày 5: Energy & Sustainability + Causative (have/get something done)',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-5/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-5-online-learning-wish-past-simple/',
       vocabulary: [
         { en: 'energy', vi: 'năng lượng', ipa: '/ˈenərdʒi/', example: 'Renewable energy is the future.' },
         { en: 'renewable', vi: 'tái tạo được', ipa: '/rɪˈnjuːəbəl/', example: 'Wind is a renewable resource.' },
@@ -470,7 +470,7 @@ export const week10 = {
     {
       id: 'day-6',
       title: 'Ngày 6: Future Technology + Future Perfect',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-6/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-6-academic-vocabulary-complex-sentences/',
       vocabulary: [
         { en: 'robot', vi: 'rô-bốt', ipa: '/ˈroʊbɑːt/', example: 'Robots work in factories.' },
         { en: 'automation', vi: 'tự động hóa', ipa: '/ˌɔːtəˈmeɪʃən/', example: 'Automation is replacing manual work.' },
@@ -562,7 +562,7 @@ export const week10 = {
     {
       id: 'day-7',
       title: 'Ngày 7: Ôn tập + Weekly Test — Tuần 10',
-      blogUrl: 'https://eng4it.com/ielts/week-10/day-7/',
+      blogUrl: 'https://eng4it.com/ielts/week-10/day-7-review-mini-test-tuan-10/',
       vocabulary: [
         { en: 'invention', vi: 'phát minh', ipa: '/ɪnˈvenʃən/', example: 'The telephone was a great invention.' },
         { en: 'software', vi: 'phần mềm', ipa: '/ˈsɔːftwer/', example: 'We develop software for businesses.' },
