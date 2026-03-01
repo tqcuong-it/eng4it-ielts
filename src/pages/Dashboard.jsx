@@ -90,6 +90,8 @@ export default function Dashboard() {
             const completed = isDayCompleted(day.id)
             const exStatus = getExerciseStatus(day.id)
             const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
+            const allPassed = Object.values(exStatus).filter(Boolean).length
+            const dayProgress = Math.round((allPassed / 5) * 100)
             const isExpanded = expandedDays[day.id] || false
 
             // Completed days: collapsed by default
@@ -100,7 +102,7 @@ export default function Dashboard() {
                     <div className="lesson-status">✅</div>
                     <div className="lesson-info">
                       <h3>{day.title}</h3>
-                      <p>Hoàn thành · {requiredPassed}/3 bắt buộc</p>
+                      <p>{dayProgress}% · {allPassed}/5 bài</p>
                     </div>
                     <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
                   </div>
@@ -146,7 +148,13 @@ export default function Dashboard() {
                     <div className="lesson-status">🔓</div>
                     <div className="lesson-info">
                       <h3>{day.title}</h3>
-                      <p>{day.vocabulary.length} từ vựng · Bắt buộc: {requiredPassed}/3</p>
+                      <div className="day-progress-row">
+                        <span>{dayProgress}%</span>
+                        <div className="day-progress-bar">
+                          <div className="day-progress-fill" style={{ width: `${dayProgress}%` }} />
+                        </div>
+                        <span>{allPassed}/5</span>
+                      </div>
                       {day.blogUrl && (
                         <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
                           📖 Xem giáo án trên blog
