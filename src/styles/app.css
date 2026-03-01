@@ -21,12 +21,31 @@
   --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
 }
 
+/* === Dark Mode === */
+[data-theme="dark"] {
+  --primary: #529CCA;
+  --primary-light: #1a2f42;
+  --success: #34D399;
+  --success-light: #064E3B;
+  --warning: #FBBF24;
+  --warning-light: #451a03;
+  --danger: #F87171;
+  --danger-light: #450a0a;
+  --text: #E3E2E0;
+  --text-secondary: #9B9A97;
+  --bg: #191919;
+  --card: #202020;
+  --border: #373737;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
 body {
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a { color: var(--primary); text-decoration: none; }
@@ -60,6 +79,8 @@ a { color: var(--primary); text-decoration: none; }
   font-family: inherit;
   display: inline-block;
   text-align: center;
+  min-height: 44px;
+  min-width: 44px;
 }
 .btn-primary:hover { opacity: 0.9; }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -75,6 +96,8 @@ a { color: var(--primary); text-decoration: none; }
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
+  min-height: 44px;
+  min-width: 44px;
 }
 .btn-secondary:hover { background: var(--bg); }
 
@@ -106,6 +129,8 @@ a { color: var(--primary); text-decoration: none; }
   cursor: pointer;
   font-family: inherit;
   transition: background 0.15s;
+  min-height: 44px;
+  color: var(--text);
 }
 .btn-google:hover { background: var(--bg); }
 
@@ -205,7 +230,7 @@ a { color: var(--primary); text-decoration: none; }
   transition: transform 0.1s;
 }
 .lesson-card:hover { transform: translateY(-1px); }
-.lesson-card.locked { opacity: 0.5; }
+.lesson-card.locked { opacity: 0.4; filter: grayscale(0.5); pointer-events: none; }
 .lesson-card.passed { border-left: 4px solid var(--success); }
 
 .lesson-status { font-size: 28px; }
@@ -232,7 +257,7 @@ a { color: var(--primary); text-decoration: none; }
   margin-bottom: 16px;
 }
 .learn-header h2 { flex: 1; font-size: 16px; }
-.back-link { color: var(--text-secondary); font-size: 14px; white-space: nowrap; }
+.back-link { color: var(--text-secondary); font-size: 14px; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
 .progress-text { color: var(--text-secondary); font-size: 14px; white-space: nowrap; }
 
 .progress-bar {
@@ -244,7 +269,7 @@ a { color: var(--primary); text-decoration: none; }
 }
 .progress-fill {
   height: 100%;
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--success));
   border-radius: 3px;
   transition: width 0.3s ease;
 }
@@ -266,8 +291,11 @@ a { color: var(--primary); text-decoration: none; }
 .flashcard {
   position: relative;
   height: 280px;
-  transition: transform 0.5s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+}
+.flashcard-container:hover .flashcard {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .flashcard.flipped { transform: rotateY(180deg); }
 
@@ -316,12 +344,13 @@ a { color: var(--primary); text-decoration: none; }
 .response-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   margin-top: 16px;
 }
 
 .resp-btn {
-  padding: 14px 8px;
+  padding: 14px 12px;
+  min-height: 48px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--card);
@@ -349,6 +378,7 @@ a { color: var(--primary); text-decoration: none; }
 .quiz-options { display: flex; flex-direction: column; gap: 10px; }
 .quiz-option {
   padding: 14px 18px;
+  min-height: 48px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--card);
@@ -367,6 +397,11 @@ a { color: var(--primary); text-decoration: none; }
   padding: 12px 16px;
   border-radius: 8px;
   font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .quiz-feedback.correct { background: var(--success-light); color: #065F46; }
 .quiz-feedback.wrong { background: var(--danger-light); color: #991B1B; }
@@ -414,4 +449,50 @@ a { color: var(--primary); text-decoration: none; }
   .review-banner { flex-direction: column; gap: 10px; text-align: center; }
   .word-en { font-size: 28px; }
   .word-vi { font-size: 24px; }
+}
+
+/* === Theme Toggle === */
+.theme-toggle {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.15s;
+}
+.theme-toggle:hover { background: var(--bg); }
+
+/* === Stat Cards Color === */
+.stat-card.accent .stat-number { color: var(--warning); }
+.stat-card.success .stat-number { color: var(--success); }
+
+/* === Login Features === */
+.login-features {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* === Blog Link === */
+.blog-link {
+  font-size: 12px;
+  color: var(--primary);
+  opacity: 0.8;
+}
+.blog-link:hover { opacity: 1; }
+
+/* === Dark Mode Overrides === */
+[data-theme="dark"] .quiz-feedback.correct { color: var(--success); }
+[data-theme="dark"] .quiz-feedback.wrong { color: var(--danger); }
+[data-theme="dark"] .login-card input {
+  background: var(--card);
+  color: var(--text);
+}
+
+/* === Header Actions === */
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }

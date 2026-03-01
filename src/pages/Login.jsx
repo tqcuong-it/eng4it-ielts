@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth.jsx'
+import ThemeToggle from '../components/ThemeToggle.jsx'
 
 export default function Login() {
   const { signIn, signUp, signInWithGoogle } = useAuth()
@@ -32,8 +33,12 @@ export default function Login() {
   return (
     <div className="page-center">
       <div className="login-card">
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}><ThemeToggle /></div>
         <h1>📚 Eng4IT IELTS</h1>
         <p className="login-subtitle">Hệ thống học tiếng Anh thông minh</p>
+        <p className="login-features">
+          ✅ Flashcard thông minh · 🔁 Ôn tập SRS · 🧪 Quiz kiểm tra
+        </p>
 
         <button className="btn-google" onClick={signInWithGoogle}>
           <svg viewBox="0 0 24 24" width="20" height="20">

@@ -2,6 +2,7 @@ import { useAuth } from '../hooks/useAuth.jsx'
 import { useProgress } from '../hooks/useProgress.jsx'
 import { Link } from 'react-router-dom'
 import { week1 } from '../data/week1.jsx'
+import ThemeToggle from '../components/ThemeToggle.jsx'
 
 export default function Dashboard() {
   const { user, signOut } = useAuth()
@@ -16,7 +17,10 @@ export default function Dashboard() {
           <h1>Xin chào, {user?.user_metadata?.name || 'bạn'}! 👋</h1>
           <p className="subtitle">Hãy học mỗi ngày để tiến bộ nhé!</p>
         </div>
-        <button className="btn-secondary" onClick={signOut}>Đăng xuất</button>
+        <div className="header-actions">
+          <ThemeToggle />
+          <button className="btn-secondary" onClick={signOut}>Đăng xuất</button>
+        </div>
       </header>
 
       {/* Stats Cards */}
@@ -69,6 +73,11 @@ export default function Dashboard() {
                       Điểm cao nhất: <strong>{progress.best_score}%</strong>
                       {' · '}{progress.attempts} lần thử
                     </p>
+                  )}
+                  {day.blogUrl && (
+                    <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
+                      📖 Xem giáo án trên blog
+                    </a>
                   )}
                 </div>
                 <div className="lesson-actions">
