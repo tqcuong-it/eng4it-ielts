@@ -823,4 +823,78 @@ a { color: var(--primary); text-decoration: none; }
   margin-top: 8px;
 }
 
+/* === Phase & Week Cards (Dashboard) === */
+.phase-section { margin-top: 32px; }
+.phase-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--content);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.week-card {
+  background: var(--card-bg, var(--theme));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.week-card.milestone {
+  border-color: var(--primary);
+  border-width: 2px;
+}
+
+.week-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  cursor: pointer;
+  min-height: 48px;
+  gap: 8px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.week-header:active { background: rgba(0,0,0,0.03); }
+[data-theme="dark"] .week-header:active { background: rgba(255,255,255,0.05); }
+
+.week-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--content);
+  flex: 1;
+}
+
+.week-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.week-days {
+  padding: 0 12px 12px;
+}
+
+/* Blog day cards (week 2+) */
+.lesson-card.blog-day {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 6px;
+  padding: 10px 14px;
+  transition: background 0.15s;
+}
+.lesson-card.blog-day:hover { background: rgba(0,0,0,0.02); }
+[data-theme="dark"] .lesson-card.blog-day:hover { background: rgba(255,255,255,0.04); }
+.lesson-card.blog-day .lesson-top { display: flex; align-items: center; gap: 10px; }
+.lesson-card.blog-day h3 { font-size: 14px; font-weight: 500; }
+.blog-hint { font-size: 12px; color: var(--primary); margin-top: 2px; }
 
