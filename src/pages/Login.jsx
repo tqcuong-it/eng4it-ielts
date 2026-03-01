@@ -1,47 +1,19 @@
-import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth.jsx'
 import ThemeToggle from '../components/ThemeToggle.jsx'
 
 export default function Login() {
-  const { signIn, signUp, signInWithGoogle } = useAuth()
-  const [isSignUp, setIsSignUp] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
-
-    try {
-      if (isSignUp) {
-        const { error } = await signUp(email, password, name)
-        if (error) throw error
-      } else {
-        const { error } = await signIn(email, password)
-        if (error) throw error
-      }
-    } catch (err) {
-      setError(err.message)
-    }
-    setLoading(false)
-  }
+  const { signInWithGoogle } = useAuth()
 
   return (
-    <div className="page-center">
-      <div className="login-card">
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}><ThemeToggle /></div>
-        <h1>📚 Eng4IT IELTS</h1>
-        <p className="login-subtitle">Hệ thống học tiếng Anh thông minh</p>
-        <p className="login-features">
-          ✅ Flashcard thông minh · 🔁 Ôn tập SRS · 🧪 Quiz kiểm tra
-        </p>
+    <div className="login-page">
+      <div className="login-toggle"><ThemeToggle /></div>
+      <div className="login-box">
+        <div className="login-logo">📚</div>
+        <h1>IELTS 6.0</h1>
+        <p>Học mỗi ngày, tiến bộ mỗi ngày</p>
 
         <button className="btn-google" onClick={signInWithGoogle}>
-          <svg viewBox="0 0 24 24" width="20" height="20">
+          <svg viewBox="0 0 24 24" width="18" height="18">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
             <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -50,47 +22,9 @@ export default function Login() {
           Đăng nhập với Google
         </button>
 
-        <div className="divider"><span>hoặc</span></div>
-
-        <form onSubmit={handleSubmit}>
-          {isSignUp && (
-            <input
-              type="text"
-              placeholder="Tên của bạn"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          )}
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Mật khẩu"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={6}
-          />
-
-          {error && <p className="error-msg">{error}</p>}
-
-          <button type="submit" className="btn-primary btn-full" disabled={loading}>
-            {loading ? 'Đang xử lý...' : (isSignUp ? 'Đăng ký' : 'Đăng nhập')}
-          </button>
-        </form>
-
-        <p className="switch-mode">
-          {isSignUp ? 'Đã có tài khoản?' : 'Chưa có tài khoản?'}{' '}
-          <button className="link-btn" onClick={() => { setIsSignUp(!isSignUp); setError('') }}>
-            {isSignUp ? 'Đăng nhập' : 'Đăng ký miễn phí'}
-          </button>
-        </p>
+        <a href="https://eng4it.com/ielts/" target="_blank" rel="noopener" className="login-blog-link">
+          📖 Xem giáo trình miễn phí trên blog
+        </a>
       </div>
     </div>
   )

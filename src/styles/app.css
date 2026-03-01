@@ -102,17 +102,45 @@ a { color: var(--primary); text-decoration: none; }
 .btn-secondary:hover { background: var(--bg); }
 
 /* === Login === */
-.login-card {
-  background: var(--card);
-  padding: 40px 32px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
 }
-.login-card h1 { font-size: 28px; margin-bottom: 4px; }
-.login-subtitle { color: var(--text-secondary); margin-bottom: 24px; }
+
+.login-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+}
+
+.login-box {
+  text-align: center;
+  padding: 32px 24px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.login-logo {
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.login-box h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.login-box > p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+}
 
 .btn-google {
   width: 100%;
@@ -120,51 +148,40 @@ a { color: var(--primary); text-decoration: none; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px;
+  padding: 14px 20px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.15s;
-  min-height: 44px;
+  transition: all 0.15s;
+  min-height: 48px;
   color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
-.btn-google:hover { background: var(--bg); }
+.btn-google:hover {
+  background: var(--bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.btn-google:active {
+  transform: scale(0.98);
+}
 
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-  color: var(--text-secondary);
+.login-blog-link {
+  display: block;
+  margin-top: 24px;
   font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
 }
-.divider::before, .divider::after {
-  content: '';
-  flex: 1;
-  border-bottom: 1px solid var(--border);
+.login-blog-link:hover {
+  color: var(--primary);
 }
-.divider span { padding: 0 12px; }
-
-.login-card form { text-align: left; }
-.login-card input {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 15px;
-  margin-bottom: 12px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.login-card input:focus { border-color: var(--primary); }
 
 .error-msg { color: var(--danger); font-size: 14px; margin-bottom: 12px; }
-
-.switch-mode { margin-top: 16px; font-size: 14px; color: var(--text-secondary); }
 .link-btn {
   background: none;
   border: none;
@@ -467,12 +484,7 @@ a { color: var(--primary); text-decoration: none; }
 .stat-card.accent .stat-number { color: var(--warning); }
 .stat-card.success .stat-number { color: var(--success); }
 
-/* === Login Features === */
-.login-features {
-  font-size: 13px;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
+
 
 /* === Blog Link === */
 .blog-link {
@@ -485,10 +497,7 @@ a { color: var(--primary); text-decoration: none; }
 /* === Dark Mode Overrides === */
 [data-theme="dark"] .quiz-feedback.correct { color: var(--success); }
 [data-theme="dark"] .quiz-feedback.wrong { color: var(--danger); }
-[data-theme="dark"] .login-card input {
-  background: var(--card);
-  color: var(--text);
-}
+
 
 /* === Header Actions === */
 .header-actions {
