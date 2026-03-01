@@ -90,8 +90,13 @@ export default function Dashboard() {
             const completed = isDayCompleted(day.id)
             const exStatus = getExerciseStatus(day.id)
             const requiredPassed = [exStatus.reading, exStatus.listening, exStatus.quiz].filter(Boolean).length
-            const allPassed = Object.values(exStatus).filter(Boolean).length
-            const dayProgress = Math.round((allPassed / 5) * 100)
+            // Vocab + Grammar = 20% (10% each), Reading + Listening + Quiz = 80% (~26.7% each)
+            let dayProgress = 0
+            if (exStatus.vocab) dayProgress += 10
+            if (exStatus.grammar) dayProgress += 10
+            if (exStatus.reading) dayProgress += 27
+            if (exStatus.listening) dayProgress += 27
+            if (exStatus.quiz) dayProgress += 26
             const isExpanded = expandedDays[day.id] || false
 
             // Completed days: collapsed by default
@@ -102,7 +107,7 @@ export default function Dashboard() {
                     <div className="lesson-status">✅</div>
                     <div className="lesson-info">
                       <h3>{day.title}</h3>
-                      <p>{dayProgress}% · {allPassed}/5 bài</p>
+                      <p>{dayProgress}%</p>
                     </div>
                     <span className={`toggle-arrow ${isExpanded ? 'open' : ''}`}>›</span>
                   </div>
@@ -153,7 +158,7 @@ export default function Dashboard() {
                         <div className="day-progress-bar">
                           <div className="day-progress-fill" style={{ width: `${dayProgress}%` }} />
                         </div>
-                        <span>{allPassed}/5</span>
+                        <span>{dayProgress}%</span>
                       </div>
                       {day.blogUrl && (
                         <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
