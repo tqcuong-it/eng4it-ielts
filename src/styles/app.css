@@ -1146,3 +1146,167 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* ============================================
+   COMPREHENSIVE DARK MODE FIXES
+   ============================================ */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* All text must use --text in dark mode */
+[data-theme="dark"] body,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] label {
+  color: var(--text);
+}
+
+/* Buttons must be readable */
+[data-theme="dark"] button,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .quiz-option,
+[data-theme="dark"] select,
+[data-theme="dark"] input {
+  color: var(--text);
+  background: var(--card);
+  border-color: var(--border);
+}
+
+/* Quiz options */
+[data-theme="dark"] .quiz-option:hover:not(:disabled) {
+  color: var(--text);
+}
+[data-theme="dark"] .quiz-option.correct {
+  color: var(--success);
+  border-color: var(--success);
+}
+[data-theme="dark"] .quiz-option.wrong {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Grammar box */
+[data-theme="dark"] .grammar-box {
+  color: var(--text);
+}
+[data-theme="dark"] .grammar-vi {
+  color: var(--text);
+}
+[data-theme="dark"] .formula-row {
+  color: var(--text);
+  background: var(--bg);
+}
+[data-theme="dark"] .formula-row strong {
+  color: var(--text);
+}
+
+/* Reading passage */
+[data-theme="dark"] .reading-passage {
+  color: var(--text);
+}
+[data-theme="dark"] .reading-passage p,
+[data-theme="dark"] .reading-passage strong {
+  color: var(--text);
+}
+
+/* Flashcard */
+[data-theme="dark"] .flashcard-front,
+[data-theme="dark"] .flashcard-back {
+  color: var(--text);
+  background: var(--card);
+}
+[data-theme="dark"] .word-en {
+  color: var(--text);
+}
+
+/* Quiz card & question */
+[data-theme="dark"] .quiz-card {
+  color: var(--text);
+}
+[data-theme="dark"] .quiz-question {
+  color: var(--text);
+}
+
+/* Result cards */
+[data-theme="dark"] .result-card,
+[data-theme="dark"] .complete-card {
+  color: var(--text);
+}
+
+/* Listening resources */
+[data-theme="dark"] .resource-link {
+  color: var(--text);
+}
+
+/* Lesson cards */
+[data-theme="dark"] .lesson-card {
+  color: var(--text);
+}
+[data-theme="dark"] .lesson-card h3 {
+  color: var(--text);
+}
+
+/* Exercise rows */
+[data-theme="dark"] .exercise-row .ex-name {
+  color: var(--text);
+}
+
+/* Stats */
+[data-theme="dark"] .stat-card {
+  color: var(--text);
+}
+[data-theme="dark"] .stat-label {
+  color: var(--text-secondary);
+}
+
+/* Profile page */
+[data-theme="dark"] .profile-card {
+  color: var(--text);
+}
+
+/* Progress bar text */
+[data-theme="dark"] .day-progress-row span {
+  color: var(--text-secondary);
+}
+
+/* Links keep primary color */
+[data-theme="dark"] a {
+  color: var(--primary);
+}
+[data-theme="dark"] .back-link {
+  color: var(--text-secondary);
+}
+
+/* Hover states */
+[data-theme="dark"] .lesson-card:hover,
+[data-theme="dark"] .resource-link:hover {
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+}
+
+/* btn-secondary on dark */
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Week headers */
+[data-theme="dark"] .week-header {
+  color: var(--text);
+}
+[data-theme="dark"] .week-header h3 {
+  color: var(--text);
+}
+
+/* Phase headers */
+[data-theme="dark"] .phase-header {
+  color: var(--text);
+}
