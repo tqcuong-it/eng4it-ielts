@@ -5,7 +5,7 @@ import { useProgress } from '../hooks/useProgress.jsx'
 
 export default function Learn() {
   const { dayId } = useParams()
-  const { reviewWord } = useProgress()
+  const { reviewWord, markVocabDone } = useProgress()
   const day = week1.days.find(d => d.id === dayId)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
@@ -24,6 +24,7 @@ export default function Learn() {
       setCurrentIndex(currentIndex + 1)
       setFlipped(false)
     } else {
+      await markVocabDone(dayId)
       setMode('complete')
     }
   }

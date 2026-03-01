@@ -3,13 +3,15 @@ import { supabase } from '../lib/supabase.jsx'
 import { useAuth } from './useAuth.jsx'
 import { sm2, getWordStatus } from '../lib/srs.jsx'
 
+// All exercise types that must be passed to unlock next day
+const EXERCISE_TYPES = ['vocab', 'grammar', 'reading', 'listening', 'quiz']
+
 export function useProgress() {
   const { user } = useAuth()
   const [vocabProgress, setVocabProgress] = useState({})
   const [lessonProgress, setLessonProgress] = useState({})
   const [loading, setLoading] = useState(true)
 
-  // Load progress from Supabase
   useEffect(() => {
     if (!user) {
       setLoading(false)
@@ -21,28 +23,22 @@ export function useProgress() {
   const loadProgress = async () => {
     setLoading(true)
     try {
-      // Load vocabulary progress
       const { data: vocabData } = await supabase
         .from('vocabulary_progress')
         .select('*')
         .eq('user_id', user.id)
 
       const vocabMap = {}
-      vocabData?.forEach(v => {
-        vocabMap[v.word_id] = v
-      })
+      vocabData?.forEach(v => { vocabMap[v.word_id] = v })
       setVocabProgress(vocabMap)
 
-      // Load lesson progress
       const { data: lessonData } = await supabase
         .from('lesson_progress')
         .select('*')
         .eq('user_id', user.id)
 
       const lessonMap = {}
-      lessonData?.forEach(l => {
-        lessonMap[l.lesson_id] = l
-      })
+      lessonData?.forEach(l => { lessonMap[l.lesson_id] = l })
       setLessonProgress(lessonMap)
     } catch (err) {
       console.error('Failed to load progress:', err)
@@ -50,7 +46,6 @@ export function useProgress() {
     setLoading(false)
   }
 
-  // Review a word (SRS)
   const reviewWord = async (wordId, quality) => {
     const current = vocabProgress[wordId] || {
       repetition: 0,
@@ -58,12 +53,7 @@ export function useProgress() {
       interval: 1,
     }
 
-    const result = sm2(
-      quality,
-      current.repetition,
-      current.ease_factor,
-      current.interval
-    )
+    const result = sm2(quality, current.repetition, current.ease_factor, current.interval)
 
     const update = {
       user_id: user.id,
@@ -87,10 +77,14 @@ export function useProgress() {
     return { result, error }
   }
 
-  // Submit quiz result
+  // Submit any exercise result (vocab, grammar, reading, listening, quiz)
   const submitQuiz = async (lessonId, score, total) => {
     const percentage = Math.round((score / total) * 100)
-    const passed = percentage >= 80
+    
+    // Determine pass threshold based on type
+    const isListening = lessonId.endsWith('-listening')
+    const passThreshold = isListening ? 60 : 80
+    const passed = percentage >= passThreshold
 
     const current = lessonProgress[lessonId]
     const attempts = (current?.attempts || 0) + 1
@@ -117,14 +111,52 @@ export function useProgress() {
     return { passed, percentage, error }
   }
 
-  // Check if lesson is unlocked
-  const isLessonUnlocked = (dayIndex) => {
-    if (dayIndex === 0) return true // Day 1 always unlocked
-    const prevDayId = `day-${dayIndex}` // Previous day
-    return lessonProgress[prevDayId]?.passed === true
+  // Mark vocab flashcard session as completed
+  const markVocabDone = async (dayId) => {
+    const lessonId = `${dayId}-vocab`
+    const update = {
+      user_id: user.id,
+      lesson_id: lessonId,
+      score: 100,
+      best_score: 100,
+      passed: true,
+      attempts: 1,
+      completed_at: new Date().toISOString(),
+    }
+
+    const { error } = await supabase
+      .from('lesson_progress')
+      .upsert(update, { onConflict: 'user_id,lesson_id' })
+
+    if (!error) {
+      setLessonProgress(prev => ({ ...prev, [lessonId]: update }))
+    }
   }
 
-  // Get words due for review today
+  // Get status of each exercise type for a day
+  const getExerciseStatus = (dayId) => {
+    return {
+      vocab: lessonProgress[`${dayId}-vocab`]?.passed === true,
+      grammar: lessonProgress[`${dayId}-grammar`]?.passed === true,
+      reading: lessonProgress[`${dayId}-reading`]?.passed === true,
+      listening: lessonProgress[`${dayId}-listening`]?.passed === true,
+      quiz: lessonProgress[dayId]?.passed === true,
+    }
+  }
+
+  // Check if ALL exercises of a day are passed
+  const isDayCompleted = (dayId) => {
+    const status = getExerciseStatus(dayId)
+    return Object.values(status).every(v => v === true)
+  }
+
+  // Unlock: day 1 always open; next day requires ALL exercises of previous day passed
+  const isLessonUnlocked = (dayIndex) => {
+    if (dayIndex === 0) return true
+    const prevDayId = `day-${dayIndex}`
+    return isDayCompleted(prevDayId)
+  }
+
   const getDueWords = () => {
     const today = new Date().toISOString().split('T')[0]
     return Object.entries(vocabProgress)
@@ -132,7 +164,6 @@ export function useProgress() {
       .map(([wordId, v]) => ({ wordId, ...v }))
   }
 
-  // Get stats
   const getStats = () => {
     const total = Object.keys(vocabProgress).length
     const mastered = Object.values(vocabProgress).filter(v => v.status === 'mastered').length
@@ -149,7 +180,10 @@ export function useProgress() {
     loading,
     reviewWord,
     submitQuiz,
+    markVocabDone,
     isLessonUnlocked,
+    isDayCompleted,
+    getExerciseStatus,
     getDueWords,
     getStats,
     reload: loadProgress,

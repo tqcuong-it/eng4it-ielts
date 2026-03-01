@@ -6,7 +6,7 @@ import ThemeToggle from '../components/ThemeToggle.jsx'
 
 export default function Dashboard() {
   const { user, signOut } = useAuth()
-  const { lessonProgress, isLessonUnlocked, getStats, getDueWords } = useProgress()
+  const { lessonProgress, isLessonUnlocked, getExerciseStatus, isDayCompleted, getStats, getDueWords } = useProgress()
   const stats = getStats()
   const dueWords = getDueWords()
 
@@ -57,53 +57,62 @@ export default function Dashboard() {
         <div className="lessons-list">
           {week1.days.map((day, index) => {
             const unlocked = isLessonUnlocked(index)
-            const progress = lessonProgress[day.id]
-            const passed = progress?.passed
+            const completed = isDayCompleted(day.id)
+            const exStatus = getExerciseStatus(day.id)
+            const passedCount = Object.values(exStatus).filter(Boolean).length
 
             return (
-              <div key={day.id} className={`lesson-card ${!unlocked ? 'locked' : ''} ${passed ? 'passed' : ''}`}>
-                <div className="lesson-status">
-                  {passed ? '✅' : unlocked ? '🔓' : '🔒'}
+              <div key={day.id} className={`lesson-card ${!unlocked ? 'locked' : ''} ${completed ? 'passed' : ''}`}>
+                <div className="lesson-top">
+                  <div className="lesson-status">
+                    {completed ? '✅' : unlocked ? '🔓' : '🔒'}
+                  </div>
+                  <div className="lesson-info">
+                    <h3>{day.title}</h3>
+                    <p>{day.vocabulary.length} từ vựng · Hoàn thành {passedCount}/5</p>
+                    {day.blogUrl && (
+                      <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
+                        📖 Xem giáo án trên blog
+                      </a>
+                    )}
+                  </div>
                 </div>
-                <div className="lesson-info">
-                  <h3>{day.title}</h3>
-                  <p>{day.vocabulary.length} từ vựng · {day.quiz.length} câu quiz</p>
-                  {progress && (
-                    <p className="lesson-score">
-                      Điểm cao nhất: <strong>{progress.best_score}%</strong>
-                      {' · '}{progress.attempts} lần thử
-                    </p>
-                  )}
-                  {day.blogUrl && (
-                    <a href={day.blogUrl} target="_blank" rel="noopener" className="blog-link">
-                      📖 Xem giáo án trên blog
-                    </a>
-                  )}
-                </div>
-                <div className="lesson-actions">
-                  {unlocked && (
-                    <div className="lesson-actions-grid">
-                      <Link to={`/learn/${day.id}`} className="action-btn vocab">
-                        📚 Từ vựng
-                      </Link>
-                      <Link to={`/grammar/${day.id}`} className="action-btn grammar">
-                        📝 Ngữ pháp
-                      </Link>
-                      <Link to={`/reading/${day.id}`} className="action-btn reading">
-                        📖 Đọc hiểu
-                      </Link>
-                      <Link to={`/listening/${day.id}`} className="action-btn listening">
-                        🎧 Nghe
-                      </Link>
-                      <Link to={`/quiz/${day.id}`} className="action-btn quiz">
-                        🧪 Kiểm tra
-                      </Link>
-                    </div>
-                  )}
-                  {!unlocked && (
-                    <span className="locked-text">Pass bài trước để mở khóa</span>
-                  )}
-                </div>
+
+                {unlocked && (
+                  <div className="exercise-grid">
+                    <Link to={`/learn/${day.id}`} className={`exercise-btn ${exStatus.vocab ? 'done' : ''}`}>
+                      <span className="ex-icon">📚</span>
+                      <span className="ex-label">Từ vựng</span>
+                      <span className="ex-status">{exStatus.vocab ? '✅' : '○'}</span>
+                    </Link>
+                    <Link to={`/grammar/${day.id}`} className={`exercise-btn ${exStatus.grammar ? 'done' : ''}`}>
+                      <span className="ex-icon">📝</span>
+                      <span className="ex-label">Ngữ pháp</span>
+                      <span className="ex-status">{exStatus.grammar ? '✅' : '○'}</span>
+                    </Link>
+                    <Link to={`/reading/${day.id}`} className={`exercise-btn ${exStatus.reading ? 'done' : ''}`}>
+                      <span className="ex-icon">📖</span>
+                      <span className="ex-label">Đọc hiểu</span>
+                      <span className="ex-status">{exStatus.reading ? '✅' : '○'}</span>
+                    </Link>
+                    <Link to={`/listening/${day.id}`} className={`exercise-btn ${exStatus.listening ? 'done' : ''}`}>
+                      <span className="ex-icon">🎧</span>
+                      <span className="ex-label">Nghe</span>
+                      <span className="ex-status">{exStatus.listening ? '✅' : '○'}</span>
+                    </Link>
+                    <Link to={`/quiz/${day.id}`} className={`exercise-btn ${exStatus.quiz ? 'done' : ''}`}>
+                      <span className="ex-icon">🧪</span>
+                      <span className="ex-label">Kiểm tra</span>
+                      <span className="ex-status">{exStatus.quiz ? '✅' : '○'}</span>
+                    </Link>
+                  </div>
+                )}
+
+                {!unlocked && (
+                  <div className="locked-msg">
+                    🔒 Pass hết 5 bài của ngày trước để mở khóa
+                  </div>
+                )}
               </div>
             )
           })}

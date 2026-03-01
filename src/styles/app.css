@@ -555,22 +555,65 @@ a { color: var(--primary); text-decoration: none; }
 .resource-link p { font-size: 13px; color: var(--text-secondary); margin: 0; }
 .resource-arrow { color: var(--primary); font-size: 18px; margin-left: auto; }
 
-/* === Lesson Actions Grid === */
-.lesson-actions-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.action-btn {
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  text-decoration: none;
-  color: var(--text);
+/* === Lesson Card Layout === */
+.lesson-card {
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  position: relative;
+}
+.lesson-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.lesson-top .lesson-status { font-size: 24px; flex-shrink: 0; }
+
+/* === Exercise Grid === */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.exercise-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: 8px;
   background: var(--bg);
   border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
   transition: all 0.15s;
-  min-height: 32px;
-  display: inline-flex;
-  align-items: center;
+  min-height: 44px;
 }
-.action-btn:hover { border-color: var(--primary); color: var(--primary); }
-.lesson-card { flex-direction: column; align-items: flex-start; text-align: left; position: relative; }
-.lesson-card .lesson-status { position: absolute; top: 12px; right: 12px; }
+.exercise-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+.exercise-btn.done {
+  border-color: var(--success);
+  background: var(--success-light);
+}
+.ex-icon { font-size: 20px; }
+.ex-label { font-size: 11px; font-weight: 500; }
+.ex-status { font-size: 12px; color: var(--text-secondary); }
+.exercise-btn.done .ex-status { color: var(--success); }
+
+.locked-msg {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .exercise-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
